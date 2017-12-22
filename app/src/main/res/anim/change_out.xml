@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 从屏幕左边退出，先退后2%p位置，再向左退出 -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shareInterpolator="false" >
+
+    <translate
+        android:duration="5"
+        android:fromXDelta="0%p"
+        android:toXDelta="-100%p" />
+
+</set>

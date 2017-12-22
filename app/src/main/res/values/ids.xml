@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <item type="id" name="id_autolayout" />
+
+    <item name="smContentView" type="id"/>
+    <item name="smMenuViewLeft" type="id"/>
+    <item name="smMenuViewRight" type="id"/>
+    <item name="cb_item_tag" type="id"/>
+    <item name="special_scrollview_title" type="id"/>
+    <item name="special_scrollview_content" type="id"/>
+    <item name="special_scrollview_middle" type="id"/>
+    </resources>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_selector_commit">
+
+        <FrameLayout
+            android:id="@+id/flayout_liveroom_surface"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <ImageView
+                android:id="@+id/img_liveroom_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+            <SurfaceView
+                android:id="@+id/player_fullscreen_surface_view"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:layout_gravity="top" />
+        </FrameLayout>
+        <com.wanghui.livegesturedemo.widget.HorizatialSlideFrameLayout
+            android:id="@+id/hslideflayout_liveroom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/bimg_small_live_switch"
+                    android:layout_width="@dimen/dp36"
+                    android:layout_height="@dimen/dp36"
+                    android:src="@drawable/liveroom_small_switch_selector"
+                    android:visibility="visible"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="@dimen/dp10"/>
+            </RelativeLayout>
+        </com.wanghui.livegesturedemo.widget.HorizatialSlideFrameLayout>
+
+
+
+        <com.wanghui.livegesturedemo.widget.DragLayout
+            android:id="@+id/drag_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.wanghui.livegesturedemo.widget.CanDragFrameLayout
+                android:id="@+id/can_drag_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/dp55"
+                android:layout_marginRight="@dimen/dp10"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/iv_small_live_bg"
+                    android:layout_width="@dimen/dp120"
+                    android:layout_height="@dimen/dp213"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_small_live"/>
+
+                <TextureView
+                    android:id="@+id/surface_camera"
+                    android:layout_width="@dimen/dp120"
+                    android:layout_height="@dimen/dp213" />
+
+                <ImageView
+                    android:id="@+id/iv_small_loading"
+                    android:layout_width="@dimen/dialog_waitting_child"
+                    android:layout_height="@dimen/dialog_waitting_child"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/dialog_wating"
+                    android:visibility="gone"/>
+
+                <FrameLayout
+                    android:id="@+id/fl_on_camera"
+                    android:layout_width="@dimen/dp120"
+                    android:layout_height="@dimen/dp213">
+
+                    <com.wanghui.livegesturedemo.widget.MyImageView
+                        android:id="@+id/iv_close_small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:layout_marginBottom="@dimen/dp16"
+                        android:background="@drawable/liveroom_close_small_selector"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+            </com.wanghui.livegesturedemo.widget.CanDragFrameLayout>
+
+        </com.wanghui.livegesturedemo.widget.DragLayout>
+
+
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,718 @@
+<resources>
+    <string name="app_name">欢朋直播</string>
+    <!--下拉刷新，下拉加载-->
+    <string name="refresh_error">刷新失败,请检查网络</string>
+    <string name="loadmore_error">加载失败,请检查网络</string>
+    <string name="only_one_child">只能有一个子孩子</string>
+    <string name="load_failed">加载出错了...</string>
+    <!--MainActivity-->
+    <string name="onstart_toast">正在直播中,请结束直播再进其他直播间或录像!</string>
+    <string name="no_net_to_video">无法观看视频，请连接网络</string>
+    <string name="no_net_to_live">无法进入直播间，请连接网络</string>
+    <string name="main_pager">首页</string>
+    <string name="mine_pager">我的</string>
+    <string name="attention_pager">关注</string>
+    <string name="live_pager">分类</string>
+    <string name="live_palywith">约玩</string>
+    <string name="live_record_desk">手游录屏直播</string>
+    <string name="live_record_camera">摄像直播</string>
+    <string name="live_record_double">“手游+摄像”双屏\n直播</string>
+
+    <!--PortocolActivity-->
+    <string name="user_portocol">用户协议</string>
+    <string name="recharge_portocol">欢朋充值服务协议</string>
+    <!--HomeFragment-->
+    <string name="home_hot">热门</string>
+    <string name="home_news">最新</string>
+    <string name="home_hot_connection_failed">网络连接失败!请检查数据或WIFI是否开启</string>
+
+    <!--直播间 liqiang-->
+    <string name="live_gift_ufo">飞船</string>
+    <string name="live_gift_huan_bi">6,000 欢朋币</string>
+    <string name="live_gift_car">汽车</string>
+    <string name="live_gift_huan_carbi">1,000 欢朋币</string>
+    <string name="live_gift_boarding">滑板</string>
+    <string name="live_gift_huan_boardingbi">60 欢朋币</string>
+    <string name="live_gift_drink">饮料</string>
+    <string name="live_gift_huan_drinkbi">2 欢朋币</string>
+    <string name="live_gift_huandou">欢朋豆</string>
+    <string name="live_gift_huan_huandoubi">520 个</string>
+    <string name="live_gift_huandou2">欢朋豆</string>
+    <string name="live_gift_huan_huandoubi2">100 个</string>
+    <string name="live_edittext">说点什么吧</string>
+    <string name="live_send">发送</string>
+    <string name="live_end">直播已结束！</string>
+    <string name="live_switch_to">你可以上下滑动切换房间，或者退出</string>
+    <string name="live_attention">关注</string>
+    <string name="live_watch">0 人在看</string>
+    <string name="live_getopenbox">开启宝箱获得0欢朋豆</string>
+    <string name="live_diastema">虚位以待</string>
+    <string name="live_comments">添加评论...</string>
+    <string name="live_publish_comments">快来发表你的评论吧</string>
+    <string name="live_ranking_error">重新加载</string>
+    <string name="live_ranking_loaderror">很抱歉,加载失败了</string>
+    <string name="is_end_living">是否要结束直播？</string>
+    <string name="no_end_living">点错了</string>
+    <string name="yes_end_living">结束直播</string>
+    <string name="need_login">此功能需要先登录</string>
+    <string name="login_now">立即登录</string>
+    <string name="login_cancel">取消</string>
+    <string name="please_input_content">请输入内容</string>
+    <string name="oppo_windows">开启悬浮窗可以更方便的与观众交流,开启方式：手机管家-权限隐私-悬浮窗管理-欢朋直播-开启</string>
+    <string name="vivo_windows">开启悬浮窗可以更方便的与观众交流,开启方式：设置-更多设置-权限管理-欢朋直播-开启悬浮窗</string>
+
+    <string name="follow_success">关注成功</string>
+    <string name="person_follow">人关注</string>
+    <string name="person_look">人在看</string>
+    <string name="wan_person_follow">万人关注</string>
+    <string name="award_over">今天的奖励已经领完了，明天再来吧</string>
+    <string name="when_anchor_coming">等主播来了再送不迟~</string>
+    <string name="get_award_again">请重新领取</string>
+    <string name="is_cancel_follow">确认要取消关注吗？</string>
+    <string name="sure_cancel_follow">确认</string>
+    <string name="cancel">取消</string>
+    <string name="attention_btn">关注</string>
+    <string name="attentioned_btn">已关注</string>
+    <string name="His_Mine">Ta的主页</string>
+    <string name="record_desk_living">正在直播中...</string>
+    <string name="landing_different_places">您已在其他设备上发起直播，本场直播已结束！</string>
+    <string name="doublelive_tip">你已结束双屏直播</string>
+    <!--发直播界面 liqiang-->
+    <string name="not_location_point">无法定位</string>
+    <string name="startlive_live_title">请输入直播标题</string>
+    <string name="startlive_live_textnum">20字</string>
+    <string name="word">字</string>
+    <string name="of_the_studio">的直播间</string>
+    <string name="beforerecord_default_location">欢朋星球</string>
+    <string name="startlive_live_resolution">分辨率和码率</string>
+    <string name="startlive_live_vertial">竖屏游戏</string>
+    <string name="startlive_live_horizontal">横屏游戏</string>
+    <string name="startlive_onlookers">通知好友来围观</string>
+    <string name="startlive_start">开始直播</string>
+    <string name="before_is_continue">是否要继续上次直播？</string>
+
+    <string name="desk_no_end">您有录屏直播未结束</string>
+    <string name="end_desk">结束录屏</string>
+    <string name="continue_desk">继续录屏</string>
+    <string name="open_desk_again">请重新开启录屏功能</string>
+    <string name="camera_no_end">您有录摄像头未结束</string>
+    <string name="end_camera">结束录摄像头</string>
+    <string name="continue_camera">继续录摄像头</string>
+    <string name="open_camera_again">请重新开启录摄像头功能</string>
+
+    <string name="before_continue_live">继续直播</string>
+    <string name="end_and_restart_live">请退出后重新开始直播</string>
+    <string name="selection_game">选择游戏</string>
+    <string name="selection_category">选择类别</string>
+    <string name="selection_ok">确认</string>
+    <string name="selection_sortself">自定义游戏</string>
+    <string name="selection_tags_game">热门游戏</string>
+    <string name="selection_others_game">其他游戏</string>
+    <string name="selection_resolutionselect">分辨率和码率</string>
+    <string name="selection_weak">流畅(360p,500k)</string>
+    <string name="selection_strong">高清(540p,800k)</string>
+    <string name="selection_clear">超清(720p,1.5M)</string>
+    <string name="open_shot_permission">请打开截屏权限</string>
+    <string name="open_camera_permission">请在设置中开启摄像头权限</string>
+    <string name="need_anchor_certify">你需要认证主播后才可以直播</string>
+    <string name="certify_now">立即认证</string>
+    <string name="newlive_will_over_oldlive">发布新直播会结束上次直播</string>
+
+    <!--开宝箱pop -liqiang-->
+    <string name="congratulations">恭喜你！</string>
+    <string name="sorry">很抱歉！</string>
+    <string name="box_no_hpbean">宝箱已被洗劫一空</string>
+    <string name="not_time_to_openbox">计时结束后才可开启宝箱！</string>
+    <string name="give">赠送，</string>
+    <string name="openbox_get">开启宝箱获得</string>
+    <string name="hpbean">欢朋豆</string>
+
+    <!--每日奖励pop -liqiang-->
+    <string name="minute_toget">分钟后可领取</string>
+    <string name="person_play">人播放</string>
+
+    <!--mp4界面 -liqiang-->
+    <string name="collection_success">已收藏</string>
+    <string name="second_toget">秒后可领取</string>
+
+
+    <!-- 直播结束界面 liqiang-->
+    <string name="live_finish_follow">0人关注</string>
+    <string name="live_finish_fduration">直播时长</string>
+    <string name="live_finish_number">观众人数</string>
+    <string name="live_finish_share">分享此页面</string>
+    <string name="live_finish_publish">点播视频生成后自动发布</string>
+    <string name="live_finish_ok">完成</string>
+    <string name="live_need_audio">直播需要开启录音权限</string>
+    <string name="video_space_useless">您可以发布的录像空间已用完，将取消自动发布</string>
+    <!--分类 -->
+    <string name="kinds_title">分类</string>
+    <!--陪玩 -->
+    <string name="playwithyou_recommend">热门推荐</string>
+    <string name="playwithyou_exchange">换一批</string>
+    <string name="playwithyou_more">更多</string>
+    <string name="live_refresh_not">暂时没有数据!</string>
+    <!--关注界面-->
+    <string name="attention_onstart">正在直播</string>
+    <string name="attention_live">直播</string>
+    <string name="attention_notstart">暂未开播</string>
+    <string name="attention_login_now">立即登录</string>
+    <string name="attention_not_login">你还没有登录</string>
+    <string name="attention_login_hint">登录后才可浏览你关注的直播哦</string>
+    <string name="attention_none_hint">你关注的主播还没有开播哦</string>
+    <string name="attention_not_none_hint">你关注主播还没有在直播哦</string>
+    <!--搜索页面 -->
+    <string name="search_hint">搜索主播,直播,视频</string>
+    <string name="search_anchor">主播</string>
+    <string name="search_live">直播</string>
+    <string name="search_video">视频</string>
+    <string name="search_more">查看更多</string>
+    <string name="search_no_data">很抱歉!没有搜到相关内容</string>
+    <string name="search_no_error">网络不给力,请点击刷新</string>
+    <string name="search_content_no_null">搜索内容不能为空</string>
+    <string name="main_on_more">没有更多了</string>
+    <!-- 搜索更多直播和视频的 -->
+    <string name="more_title_live">直播</string>
+    <string name="more_title_video">视频</string>
+    <!-- 历史 收藏 消息-->
+    <string name="history">历史</string>
+    <string name="collection">收藏</string>
+    <string name="message">消息</string>
+    <string name="history_edit">编辑</string>
+    <string name="history_cancel">取消</string>
+    <string name="history_check_all">全选</string>
+    <string name="history_check_all_cancel">取消全选</string>
+    <string name="history_delete">删除</string>
+    <string name="history_no_data">你还没有浏览历史哦</string>
+    <string name="collection_no_data">你还没有收藏的视频哦</string>
+    <string name="message_no_data">你还没有收到消息哦</string>
+    <string name="package_no_data">你的背包,空空如也</string>
+    <string name="live_comment">说点什么吧</string>
+    <string name="live_refresh">请下拉刷新试一试</string>
+    <!--游戏分类 -->
+    <string name="kinds">分类</string>
+    <string name="kinds_details_live_your_division">该游戏暂时还没有直播哦</string>
+    <string name="kinds_details_video_your_division">该游戏暂时还没有视频哦</string>
+    <string name="kinds_details_error">网络不给力,请下拉刷新</string>
+    <string name="kinds_details_live">直播</string>
+    <string name="kinds_details_video">视频</string>
+    <!--充值界面 -->
+    <string name="charge_money_balance">余额:</string>
+    <string name="charge_money">充值</string>
+    <string name="charge_money_ten_dollars">10元</string>
+    <string name="charge_money_huanpeng_bi">欢朋币</string>
+    <string name="charge_money_id">账号:</string>
+    <string name="charge_money_number">请选择充值数量</string>
+    <string name="upset_pay">请选择支付方式</string>
+    <string name="charge_money_alipay">支付宝</string>
+    <string name="charge_money_weixin_pay">微信支付</string>
+    <string name="charge_money_unionpay">手机银联</string>
+    <string name="charge_money_upset_price">售价:</string>
+    <string name="charge_money_commit">提交</string>
+    <string name="pay_success">支付成功</string>
+    <string name="pay_fail">支付失败，请稍后重试</string>
+    <!--新手任务 -->
+    <string name="newbie_task">新手任务</string>
+    <string name="newbie_task_receive">成功领取</string>
+    <string name="newbie_not_authentication">手机尚未认证哦～</string>
+    <string name="newbie_goto_authentication">立即认证</string>
+    <!--我的接单 & 我的订单-->
+    <string name="my_order_receiving">我的接单</string>
+    <string name="my_order">我的订单</string>
+    <string name="my_order_nonefailure">你暂时还没有订单哦!</string>
+    <string name="my_order_myreceiving_nonefailure">你暂时没有接到订单哦!</string>
+    <string name="my_order_comment_hint">请填写你拒绝的原因</string>
+
+    <!--我的空间-->
+    <string name="my_space_prompt">未发布的视频将在15天后删除,请尽快发布;认证主播可以发布5个视频,主播等级每升级1级,可以多发布1个视频</string>
+    <string name="my_space_post_video">可发布视频</string>
+    <string name="my_space_audit">个,审核中</string>
+    <string name="my_space_number">个</string>
+    <string name="my_space_yesmy_space">,已发布</string>
+    <string name="my_space_not_video">待发布视频</string>
+    <string name="my_space_already_video">已发布视频</string>
+    <string name="my_space_video_management">管理</string>
+    <string name="my_space_video_cancel">取消</string>
+    <string name="my_space_check_all">全选</string>
+    <string name="my_space_check_all_cancel">取消全选</string>
+    <string name="my_space">我的空间</string>
+    <string name="my_space_publishideov_ok">发布成功</string>
+    <string name="my_space_delete_ok">删除成功</string>
+    <string name="my_space_delete">删除</string>
+    <string name="my_space_not_send_video">你还没有待发布的视频~</string>
+    <string name="my_space_send_video">你还没有可发布的视频~</string>
+    <!--我的收益-->
+    <string name="my_earnings">我的收益</string>
+    <string name="todayearnings">今日收益</string>
+    <string name="myearnings_myriade">万</string>
+    <string name="jinbiearnings">金币收益</string>
+    <string name="jindouearnings">金豆收益</string>
+    <string name="jinbiresidual">金币余额</string>
+    <string name="jindouresidual">金豆余额</string>
+    <string name="withdraw">申请提现</string>
+    <string name="jinbinumber">金币数量</string>
+    <string name="jindounumber">金豆数量</string>
+    <string name="withdrawcome">提现到</string>
+    <string name="bank_card">银行卡</string>
+    <string name="weixin">微信</string>
+    <string name="aliPay">支付宝</string>
+    <string name="fundsto_the_account">(一周内到账)</string>
+    <string name="unanimity">我已阅读并同意</string>
+    <string name="huanpengtv_unanimity">欢朋直播提现协议</string>
+    <string name="huanpengtv_charge_unanimity">《欢朋充值服务协议》</string>
+    <string name="yearningexplain2">2个金币可提现1元,2个金豆可提现1元;金币和金豆\n总额超过800元才可兑换,金豆数量需≥100金豆。</string>
+    <string name="yearningexplain">
+        收益及提现说明:\n(1).欢朋金币,欢朋金豆在每月的固定日期(15~18号)可兑换1次,本月没兑换累计到下月;\n(2)金币和金豆总额超过800元才可兑换,且欢朋金豆必须≥100金豆;\n礼物收益10欢朋币=1金币;欢朋豆收益1000豆=1金豆\n(3)2个金币可提现1元,2个金豆可提现1元。\n
+    </string>
+
+    <!--登录注册 苏杭-->
+    <string name="login_phone_number">请输入手机号</string>
+    <string name="login_password">请输入密码</string>
+    <string name="login">登录</string>
+    <string name="login_success">登录成功</string>
+    <string name="login_username_null">用户名不能为空!</string>
+    <string name="login_password_null">密码不能为空!</string>
+    <string name="login_forget_password">忘记密码?</string>
+    <string name="login_register">注册账号</string>
+    <string name="login_account">社交账号登录</string>
+    <string name="register_write_security_code">填写验证码</string>
+    <string name="register_security_code">验证码</string>
+    <string name="register_acquire_code">获取验证码</string>
+    <string name="register_nickname">请输入昵称</string>
+    <string name="register_write_password">请输入6至12位密码</string>
+    <string name="register_password">密码</string>
+    <string name="register">注册</string>
+    <string name="register_success">注册成功</string>
+    <string name="register_ok">注册即同意</string>
+    <string name="register_huanpengtv">《欢朋直播用户协议》</string>
+    <string name="register_write_code">请输入验证码</string>
+    <string name="register_confirm">确认</string>
+    <string name="register_cancel">取消</string>
+    <string name="retister_phone">手机号</string>
+    <string name="register_nick">昵称</string>
+    <string name="register_send_ok">短信已发送</string>
+    <string name="register_agree_portocol">请先同意欢朋直播用户协议!</string>
+    <string name="register_username_null">号码不能为空!</string>
+    <string name="register_username_format">号码格式不正确!</string>
+    <string name="register_code_null">短信验证码不能为空</string>
+    <string name="register_nick_null">昵称不能为空</string>
+    <string name="register_password_formal">密码长度不小于</string>
+    <string name="register_password_null">密码不能为空</string>
+    <string name="weibosdk_demo_toast_auth_failed">授权失败</string>
+    <!--忘记密码 苏杭-->
+    <string name="forget_password">忘记密码</string>
+    <string name="forget_one_hint">请输入手机号</string>
+    <string name="forget_two_hint">请输入验证码</string>
+    <string name="forget_three_passwordhint">请输入6-12位新密码</string>
+    <string name="forget_three_repasshint">请确认新密码</string>
+    <string name="forget_three_newpass">新密码</string>
+    <string name="forget_three_repass">确认密码</string>
+    <string name="forget_confirm">确认</string>
+    <string name="forget_next">下一步</string>
+    <string name="forget_phone_error">号码输入错误,请重新输入</string>
+
+    <!--我的页面 苏杭-->
+    <string name="mine_title_login">点击登录</string>
+    <string name="mine_tv_none">点击登录</string>
+    <string name="mine_history">历史</string>
+    <string name="mine_collet">收藏</string>
+    <string name="mine_new_task">新手任务</string>
+    <string name="mine_space">我的空间</string>
+    <string name="mine_earnings">我的收益</string>
+    <string name="mine_getorder">我的接单</string>
+    <string name="mine_package">我的背包</string>
+    <string name="mine_invocation">邀请好友</string>
+    <string name="mine_order">我的订单</string>
+    <string name="mine_player_certification">约玩资质</string>
+    <string name="mine_anchor_certification">主播认证</string>
+    <string name="mine_no_certification">未认证</string>
+    <string name="mine_set">设置</string>
+    <string name="mine_item_message">消息提醒</string>
+    <string name="mine_item_authentication">主播认证</string>
+    <string name="mine_item_space">我的直播空间</string>
+    <string name="mine_item_invite">邀请</string>
+    <string name="mine_item_present">送礼记录</string>
+    <string name="mine_item_property">我的财产</string>
+    <string name="mine_item_manager">房间管理员</string>
+    <string name="mine_item_setting">系统设置</string>
+    <string name="mine_huandou">欢朋豆:</string>
+    <string name="mine_huanbi">欢朋币:</string>
+    <string name="mine_attention">我的关注</string>
+    <string name="mine_message">优惠券</string>
+    <string name="mine_inflater">充值</string>
+    <string name="mine_not_authentication">你需要先认证主播～</string>
+
+    <!-- 开播通知-->
+    <string name="push_notice">开播通知</string>
+    <string name="push_viewer">立即观看</string>
+    <!--主播主页 苏杭-->
+    <string name="anchor_editor">编辑</string>
+    <string name="anchor_new">最新</string>
+    <string name="anchor_hottest">最热</string>
+    <string name="anchor_report">举报</string>
+    <string name="anchor_oneself_no_data">该主播还没有发布直播或视频哦,\n还是到别处看看</string>
+    <string name="anchor_others_no_data">你还没有发布直播或视频哦,\n还是到别处看看</string>
+
+    <!--闪屏 苏杭-->
+    <string name="splash_permission_refuse">您拒绝了读写SD卡权限，如有需要，请进入设置页面开启权限</string>
+    <string name="app_update_newedition">有新版本</string>
+    <string name="app_update_present">立即更新</string>
+    <string name="app_update_deselect">取消下载</string>
+
+    <!--消息 苏杭-->
+    <string name="message_title">系统消息</string>
+
+    <!--协议 苏杭-->
+    <string name="portocol_one">
+        本《用户注册协议》是您（下称"用户"或"您"，是指通过欢朋注册使用服务的自然人、法人或其他组织）与XXXXXXXX（下称"欢朋"）之间在使用欢朋出品的互联网产品之前，注册欢朋帐号时签署的协议。\n
+    </string>
+    <string name="portocol_two">
+        1.1、您应认真阅读（未成年人应当在监护人陪同下阅读）、充分理解本《用户注册协议》中各条款，包括免除或者限制欢朋责任的免责条款及对用户的权利限制条款。\n
+        1.2、除非您接受本协议，否则用户无权也无必要继续接受欢朋的服务，可以退出本次注册。用户点击同意并继续使用欢朋的服务，视为用户已完全的接受本协议。\n
+        1.3、本协议一经签署，具有法律效力，请您慎重考虑是否接受本协议。\n
+        1.4、在您签署本协议之后，此文本可能因国家政策、产品以及履行本协议的环境发生变化而进行修改，修改后的协议发布在本网站上，若您对修改后的协议有异议的，请立即停止登录、使用欢朋产品及服务，若您登录或继续使用欢朋产品，视为对修改后的协议予以认可。\n
+    </string>
+    <string name="portocol_three">
+        2.1、用户在接受本协议之后，有权选择未被其他用户使用过的字母、文字及符号组合作为用户的欢朋账号，并自行设置符合安全要求的密码。用户设置的账号、密码是用户用以登录欢朋产品，接受欢朋服务，持有相关虚拟产品的凭证。\n
+        2.2、欢朋账号性质上是欢朋提供服务授予用户的身份识别凭证，欢朋账号是欢朋相应计算机软件作品的一部分，即欢朋将相关产品计算机软件著作权授权给注册用户的授权凭证。\n
+        2.3、欢朋账号还是用户持有、使用相关虚拟产品的身份凭证。用户若需要接受欢朋提供的增值服务，欢朋账号同时也是用户支付费用、接受增值服务的凭证。\n
+        2.4、用户一经注册欢朋账号，除非子频道要求单独开通权限，用户有权利用该账号使用欢朋各个频道的单项服务，当用户使用欢朋各单项服务时，用户的使用行为视为其对该单项服务的服务条款以及欢朋在该单项服务中发出的各类公告的同意。\n
+        2.5、欢朋账号仅限于在欢朋网站上注册用户本人使用，禁止赠与、借用、租用、转让或售卖。如果欢朋发现使用者并非账号初始注册人，有权在未经通知的情况下回收该账号而无需向该账号使用人承担法律责任，由此带来的包括并不限于用户通讯中断、用户资料和道具等清空等损失由用户自行承担。\n
+        2.6、用户应当妥善保管自己的欢朋账号、密码，用户就其账号及密码项下之一切活动负全部责任，包括用户数据的修改，虚拟道具的损失以及其他所有的损失由用户自行承担。用户须重视欢朋账号密码保护。用户如发现他人未经许可使用其账号时立即通知欢朋。\n
+        2.7、用户欢朋账号在丢失或遗忘密码后，可遵照欢朋的申诉途径及时申诉请求找回账号。用户应不断提供能增加账号安全性的个人密码保护资料。用户可以凭初始注册资料及个人密码保护资料填写申诉单向欢朋申请找回账号，欢朋的密码找回机制仅负责识别申诉单上所填资料与系统记录资料的正确性，而无法识别申诉人是否系真正账号权使用人。对用户因被他人冒名申诉而致的任何损失，欢朋不承担任何责任，用户知晓欢朋账号及密码保管责任在于用户，欢朋并不承诺欢朋账号丢失或遗忘密码后用户一定能通过申诉找回账号。\n
+        2.8、用户保证注册欢朋账号时填写的身份信息及个人资料是真实的，不得以虚假、冒用的居民身份信息、企业注册信息、组织机构代码信息进行注册或认证，任何非法、不真实、不准确的用户信息所产生的责任由用户承担。用户应不断更新注册资料，符合及时、详尽、真实、准确的要求。所有原始键入的资料将引用用户的账号注册资料。如果因用户的注册信息或认证信息不真实而引起的问题，以及对问题发生所带来的后果，欢朋不负任何责任。\n
+        2.9、欢朋账号的所有权属于欢朋。欢朋有权根据运营需要，发布欢朋平台规则规范。\n
+        2.10、如用户违反法律法规、侵犯第三方合法权益（包括但不限于知识产权）、违反欢朋各服务协议或平台规则等规定，欢朋有权根据相关规则进行违规判定，并采取相应限制或处罚措施，包括但不限于：限制或冻结用户对欢朋账号的使用、限制或停止某项单独服务（如账号服务及直播服务），终止或纠正用户的侵权行为，扣除保证金，扣减虚拟产品或相关服务费用并根据实际情况决定是否恢复使用。\n
+        2.11、为了充分利用欢朋账号资源，若用户存在长期未登录使用欢朋账号的情形，欢朋有权对该账号进行回收、替换等终止使用操作。\n
+        2.12、欢朋依照平台规则限制、冻结、回收、替换或终止用户对欢朋账号的使用，可能会给用户造成一定的损失，该损失由用户自行承担，欢朋不承担任何责任。\n
+    </string>
+    <string name="portocol_four">
+        3.1、利用欢朋服务产品发表、传送、传播、储存危害国家安全、国家统一、社会稳定的内容，或侮辱诽谤、色情、暴力、引起他人不安及任何违反国家法律法规政策的内容或者设置含有上述内容的网名、角色名。\n
+        3.2、利用欢朋服务发表、传送、传播、储存侵害他人知识产权、商业机密权、肖像权、隐私权等合法权利的内容。\n
+        3.3、进行任何危害计算机网络安全的行为，包括但不限于：使用未经许可的数据或进入未经许可的服务器/账户；未经允许进入公众计算机网络或者他人计算机系统并删除、修改、增加存储信息；未经许可，企图探查、扫描、测试本“软件”系统或网络的弱点或其它实施破坏网络安全的行为；企图干涉、破坏本“软件”系统或网站的正常运行，故意传播恶意程序或病毒以及其他破坏干扰正常网络信息服务的行为；伪造TCP/IP数据包名称或部分名称。\n
+        3.4、进行任何破坏欢朋服务公平性或者其他影响应用正常秩序的行为，如主动或被动刷分、合伙作弊、使用外挂或者其他的作弊软件、利用BUG（又叫“漏洞”或者“缺陷”）来获得不正当的非法利益，或者利用互联网或其他方式将外挂、作弊软件、BUG公之于众。\n
+        3.5、进行任何诸如发布广告、销售商品的商业行为，或者进行任何非法的侵害欢朋利益的行为，如贩卖欢朋平台虚拟货币、外挂、道具等。\n
+        3.6、进行其他任何违法以及侵犯其他个人、公司、社会团体、组织的合法权益的行为。\n
+    </string>
+    <string name="portocol_five">
+        4.1、用户须明白，在使用欢朋服务可能存在有来自任何他人的包括威胁性的、诽谤性的、令人反感的或非法的内容或行为或对他人权利的侵犯（包括知识产权）的匿名或冒名的信息的风险，用户须承担以上风险，欢朋对服务不作担保，不论是明确的或隐含的，包括所有有关信息真实性、适当性、适于某一特定用途、所有权和非侵权性的默示担保和条件，对因此导致任何因用户不正当或非法使用服务产生的直接、间接、偶然、特殊及后续的损害，不承担任何责任。\n
+        4.2、使用欢朋服务必须遵守国家有关法律和政策等，维护国家利益，保护国家安全，并遵守本条款，对于用户违法或违反本协议的使用(包括但不限于言论发表、传送等)而引起的一切责任，由用户负全部责任。\n
+        4.3、欢朋的服务同大多数因特网产品一样，易受到各种安全问题的困扰，包括但不限于：1）透露详细个人资料，被不法分子利用，造成现实生活中的骚扰；2）哄骗、破译密码；3）下载安装的其它软件中含有“特洛伊木马”等病毒，威胁到个人计算机上信息和数据的安全，继而威胁对本服务的使用。对于发生上述情况的，用户应当自行承担责任。\n
+        4.4、用户须明白，欢朋为了服务整体运营的需要，有权在公告通知后修改或中断、中止或终止服务而不需通知您的权利，而无须向第三方负责或承担任何赔偿责任。\n
+        4.5、用户理解，互联网技术的不稳定性，可能导致政府政策管制、病毒入侵、黑客攻击、服务器系统崩溃或者其他现今技术无法解决的风险发生可能导致欢朋服务中断或账号道具损失，用户对此非人为因素引起的损失由用户承担责任。\n
+    </string>
+    <string name="portocol_six">
+        5.1、欢朋的服务包括欢朋运营的网站、网页应用、软件以及内涵的文字、图片、视频、音频等元素，欢朋服务标志、标识以及专利权，欢朋对此享有上述知识产权。\n
+        5.2、用户不得对欢朋服务涉及的相关网页、应用、软件等产品进行反向工程、反向汇编、反向编译等。\n
+        5.3、用户使用欢朋服务只能在本《用户协议》以及相应的授权许可协议授权的范围使用欢朋知识产权，未经授权超范围使用的构成对欢朋的侵权。\n
+        5.4、用户在使用欢朋服务时发表上传的文字、图片、视频、软件以及表演等用户原创的信息，此部分信息的知识产权归用户，但用户的发表、上传行为是对欢朋服务平台的授权，用户确认其发表、上传的信息非独占性、永久性的授权，该授权可转授权。欢朋可将前述信息在欢朋旗下的服务平台上使用，可再次编辑后使用，也可以由欢朋授权给合作方使用。\n
+    </string>
+    <string name="portocol_seven">
+        6.1、请用户注意勿在使用欢朋服务中透露自己的各类财产帐户、银行卡、信用卡、第三方支付账户及对应密码等重要资料，否则由此带来的任何损失由用户自行承担。\n
+        6.2、用户的欢朋账号、密码属于保密信息，欢朋应当采取积极的措施保护用户账号、密码的安全。\n
+        6.3、用户的注册信息作为欢朋的商业秘密进来保护。但用户同时明白，互联网的开放性以及技术更新非常快，非欢朋可控制的因素导致用户泄漏的，欢朋不承担责任。\n
+        6.4、用户在使用欢朋服务时不可将自认为隐私的信息发表、上传至欢朋，也不可将该等信息通过欢朋的服务传播给其他人，若用户的行为引起的隐私泄漏，由用户承担责任。\n
+        6.5、欢朋在提供服务时可能会搜集用户信息，欢朋会明确告知用户，通常信息仅限于用户姓名、性别、年龄、出生日期、身份证号、家庭住址、教育程度、公司情况、所属行业、兴趣爱好等。\n
+        6.6、就下列相关事宜的发生，欢朋不承担任何法律责任：1）欢朋根据法律规定或相关政府、司法机关的要求提供您的个人信息；2）由于用户将用户密码告知他人或与他人共享注册账户，由此导致的任何个人信息的泄漏，或其他非因欢朋原因导致的个人信息的泄漏；3）任何由于黑客攻击、电脑病毒侵入造成的信息泄漏；4）因不可抗力导致的信息泄漏；\n
+    </string>
+    <string name="portocol_eight">
+        7.1、本协议的签署地点为，若用户与欢朋因履行本协议发生争议的，双方均应本着友好协商的原则加以解决。协商解决未果，任何一方均可以提请武汉市东湖高新区有管辖权的人民法院诉讼解决。\n
+        7.2、本协议由欢朋公布在网站上，对欢朋具有法律约束力；用户一经点击接受或者直接登录的行为视为对本协议的接受，对用户具有法律约束力。\n
+        7.3、欢朋旗下具体的网站、网页应用、软件等的使用由用户和欢朋的业务平台另行签署相关软件授权及服务协议。\n
+    </string>
+    <string name="portocol_title_one">1、重要须知:</string>
+    <string name="portocol_title_two">2、关于欢朋账号:</string>
+    <string name="portocol_title_three">3、用户不得从事以下行为:</string>
+    <string name="portocol_title_four">4、欢朋声明:</string>
+    <string name="portocol_title_five">5、知识产权:</string>
+    <string name="portocol_title_six">6、隐私保护:</string>
+    <string name="portocol_title_seven">7、其他条款:</string>
+
+    <!--设置界面 -->
+    <string name="set">设置</string>
+    <string name="set_remind">开播提醒</string>
+    <string name="set_clear">清理缓存</string>
+    <string name="set_opinion">意见反馈</string>
+    <string name="set_huanpengtv">关于欢朋直播</string>
+    <string name="set_logout">退出登录</string>
+    <string name="set_clear_ok">清除成功</string>
+    <string name="set_settings">设置</string>
+    <string name="set_logout_ok">注销成功!</string>
+    <string name="set_logout_failure">注销失败!</string>
+    <string name="set_logout_cache">确定清除缓存</string>
+    <!-- 意见反馈 -->
+    <string name="opinion_content">请输入您遇到的问题或者您的宝贵意见,我们将不断优化体验!</string>
+    <string name="opinion_contacts">联系方式</string>
+    <string name="opinion_feed">意见反馈</string>
+    <string name="opinion_content_no_null">反馈内容不能为空</string>
+    <string name="opinion_contacts_no_null">联系方式不能为空</string>
+    <string name="opinion_contacts_error">联系方式格式错误</string>
+    <string name="opinion_content_length">字</string>
+    <string name="opinion_no_network">当前网络不给力~</string>
+    <string name="opinion_thank">感谢您的宝贵意见</string>
+    <string name="opinion_failure">反馈失败</string>
+    <string name="opinion_contacts_number">手机号/邮箱/QQ</string>
+    <!--开播提现界面 -->
+    <string name="satellite_message_send">请在&quot;设置通知&quot;中开启欢朋直播的消息推送</string>
+    <string name="satellite_remind">关注开播提醒</string>
+    <!--主播认证-->
+    <string name="base_information">基本信息</string>
+    <string name="authentication">主播认证</string>
+    <string name="authentication_start">开始认证</string>
+    <string name="authentication_ok">我已阅读并同意</string>
+    <string name="authentication_porcotol">欢朋直播主播协议</string>
+    <string name="authentication_binding_phone">去绑定手机？</string>
+    <string name="authentication_binding_phone_not">取消</string>
+    <string name="authentication_binding_phone_ok">确定</string>
+    <string name="authentication_name">姓名</string>
+    <string name="authentication_name_hint">请填写真实姓名</string>
+    <string name="authentication_card">身份证号</string>
+    <string name="authentication_card_hint">请填写身份证号</string>
+    <string name="dentity_information">身份信息</string>
+    <string name="bank_information">银行卡信息</string>
+    <!-- 关于欢朋 -->
+    <string name="huanpengtv">欢朋直播</string>
+    <string name="huanpeng_relevant">关于欢朋</string>
+    <string name="version">版本号:v</string>
+    <string name="user_protcol">用户服务协议</string>
+    <string name="copyright_huanpeng">Copyright @ 2017 Huanpeng. All Rights Resered.</string>
+    <string name="huanpeng_portocol_one">
+        \u3000\u3000欢朋直播（huanpeng.com）是一家致力于为用户带来欢乐的手游直播互动平台。我们力图为您提供最好的直播与观看体验；并希望与您共同进步，绘制更加美好的未来！\n\u3000\u3000精彩手游直播，尽在欢朋！\n官方微博：欢朋直播；\n微信公众号：欢朋直播；\n用户交流
+        QQ 群：254869962。
+    </string>
+    <!-- 陪玩下单详情 -->
+    <string name="order_detail_orders">订单详情</string>
+    <string name="order_detail">局\u3000\u3000数:</string>
+    <string name="order_detail_time">约玩时间:</string>
+    <string name="order_detail_requirement">下单要求:</string>
+    <string name="order_detail_num">订   单   号:</string>
+    <string name="order_detail_orders_time">下单时间:</string>
+    <string name="order_detail_orders_amount">支付金额:</string>
+    <string name="order_detail_order_receiving_time">接单时间:</string>
+    <string name="order_detail_order_my_earnings">我的收益:</string>
+    <string name="order_detail_pay_status">支付状态:</string>
+    <string name="order_detail_pay_comment">评论内容:</string>
+    <string name="order_detail_rating">评\u3000\u3000分:</string>
+    <string name="order_detail_tag">标\u3000\u3000签:</string>
+    <!-- 举报界面 -->
+    <string name="report">举报</string>
+    <string name="report_content_length">超过30个字了亲</string>
+    <string name="report_content_submit">举报已经提交，我们会尽快核实处理</string>
+    <string name="report_content_not_null">请选择举报理由</string>
+    <string name="report_select_image">选择图片来源</string>
+    <string name="report_album">相册</string>
+    <string name="report_camera">相机</string>
+    <string name="report_camera_permission">您拒绝了使用相机的权限,请开启后再使用此功能</string>
+    <string name="report_screenshot">请上传截图</string>
+    <string name="txt_report">您可以向欢朋直播官方举报, 或者向全国文化市场举报平台进行举报</string>
+    <string name="report_politics">政治敏感</string>
+    <string name="report_salacity">色情低俗</string>
+    <string name="report_nfringement">内容侵权</string>
+    <string name="report_harassment">广告骚扰</string>
+    <string name="report_other">其他</string>
+    <string name="report_simplicity">你可以简单描述下</string>
+    <string name="report_increase">添加截图(必选)</string>
+    <!--主播资料 和 个人信息 -->
+    <string name="mymessager_no_data">该主播还没有发布直播或视频哦,\n还是到别处看看</string>
+    <string name="mymessager_editor">编辑</string>
+    <string name="mymessager_select_avatar">头像</string>
+    <string name="mymessager_check">(审核中)</string>
+    <string name="mymessager_check_not">(审核未通过)</string>
+    <string name="mymessager_nick">昵称</string>
+    <string name="mymessager_password">密码</string>
+    <string name="mymessager_password_modify">修改</string>
+    <string name="mymessager_email">邮箱</string>
+    <string name="mymessager_nobinding">未绑定</string>
+    <string name="mymessager_gobinding">去绑定</string>
+    <string name="mymessager_binding_account">绑定账号</string>
+    <string name="mymessager_phone_number">手机号</string>
+    <string name="mymessager_address">地址</string>
+    <string name="mymessager_weixin">微信</string>
+    <string name="mymessager_phone_noattestationr">未认证</string>
+    <string name="mymessager_binding_unfinished_business">绑定未完成,你需要重新绑定</string>
+    <string name="mymessager_new">最新</string>
+    <string name="mymessager_the_hottest">最热</string>
+    <string name="mymessager_report">举报</string>
+    <string name="mymessager_alllive">全部直播</string>
+    <string name="mymessager">个人信息</string>
+    <string name="mymessager_select_image">选择图片来源</string>
+    <string name="mymessager_album">相册</string>
+    <string name="mymessager_camera">相机</string>
+    <string name="mymessager_camera_permission">您拒绝了使用相机的权限,请开启后再使用此功能</string>
+    <string name="mymessager_album_upload">头像上传中...</string>
+    <string name="mymessager_album_upload_ok">头像上传成功!</string>
+    <string name="mymessager_not_filled">未填写</string>
+    <string name="mymessager_unautherized">未认证</string>
+    <string name="mymessager_head_check">头像上传成功！请等待审核</string>
+    <string name="mymessager_not_install_weixin">没有安装微信,请先安装微信!</string>
+    <string name="mymessager_not_install_weibo">没有安装微博,请先安装微博!</string>
+    <string name="mymessager_ok_binding_weixin">已绑定微信账号“</string>
+    <string name="mymessager_ok_binding_weibo">已绑定微博账号“</string>
+    <string name="mymessager_ok_binding_qq">已绑定QQ账号“</string>
+    <string name="mymessager_success_binding_weixin">已成功绑定微信账号“</string>
+    <string name="mymessager_success_binding_weibo">已成功绑定微博账号“</string>
+    <string name="mymessager_success_binding_qq">已成功绑定QQ账号“</string>
+    <string name="mymessager_ok_binding_weixin_remove">”是否要解除绑定?</string>
+    <string name="mymessager_binding_remove">解除绑定</string>
+    <string name="mymessager_no_end_living">点错了</string>
+    <string name="mymessager_ok">好的</string>
+    <!-- 修改昵称 -->
+    <string name="nick_newnick">请输入新昵称</string>
+    <string name="nick_modify">修改昵称</string>
+    <string name="nick_modify_nick">修改昵称需要花费</string>
+    <string name="nick_six">600</string>
+    <string name="nick_jinbi">欢朋币</string>
+    <string name="nick_modify_newnick_ok">修改成功</string>
+    <string name="nick_modify_not_null">昵称不能为空</string>
+    <!-- 修改密码 -->
+    <string name="password_oldpwd">请输入当前密码</string>
+    <string name="password_currentpwd">当前密码</string>
+    <string name="password_pleasepwd">请输入6-12位新密码</string>
+    <string name="password_newpwd">新密码</string>
+    <string name="password_confirmpwd">请输入确认新密码</string>
+    <string name="password_okconfirmpwd">确认密码</string>
+    <string name="password_modify">修改密码</string>
+    <string name="password_modify_currentnot_null">当前密码不能为空</string>
+    <string name="password_modify_new_not_null">新密码不能为空</string>
+    <string name="password_modify_size_less_than">新密码不能少于</string>
+    <string name="password_modify_greater_than_size">新密码不能大于</string>
+    <string name="password_modify_size">位</string>
+    <string name="modify_nick_ok">修改成功</string>
+    <string name="modify_nick_failure">修改失败</string>
+    <string name="password_modify_new_confirm_disagree">确认密码不一致</string>
+    <!-- 邮箱 -->
+    <string name="email_et">请输入邮箱地址</string>
+    <string name="email_binding">绑定邮箱</string>
+    <string name="email_send_ok">我们已经向您的邮箱</string>
+    <string name="email_not_null">邮箱不能为空!</string>
+    <string name="email_error">邮箱格式错误</string>
+    <string name="email_confirm">下一步</string>
+    <string name="email_send">发送了一封激活邮件,请点击邮箱中的链接完成验证!</string>
+    <string name="email_cognknown">知道了</string>
+    <!-- 手机号绑定 -->
+    <string name="import_phone">请输入手机号</string>
+    <string name="phone_verification">手机验证</string>
+    <string name="phone_correct">请输入手机号码</string>
+    <string name="phone_not_format">号码格式不正确</string>
+    <string name="phone_binnding">绑定手机</string>
+    <string name="phone_binnding_ok">绑定成功</string>
+    <!-- 地址编辑 -->
+    <string name="address_selection_city">请选择省份和城市</string>
+    <string name="address_city">省份城市</string>
+    <string name="address_editor">编辑地址</string>
+    <string name="address_detailed">详细地址</string>
+    <string name="address_selection_detailed">请输入详细地址</string>
+    <string name="address_city_not_null">省份城市不能为空</string>
+    <string name="address_detailedcity_not_null">详细地址不能为空</string>
+    <string name="address_detailedcity_ok">编辑成功</string>
+    <!-- 第三方分享-->
+    <string name="share_weixin">微信</string>
+    <string name="share_weixin_friendster">朋友圈</string>
+    <string name="share_qq">QQ</string>
+    <string name="share_sina_weibo">微博</string>
+    <string name="share_qq_space">QQ空间</string>
+    <string name="share_title1">大神手把手教你非RMB如何崛起！</string>
+    <string name="share_title2">老司机带你飞，快来欢朋直播观战吧！</string>
+    <string name="share_title3">一言不合就开播，玩激情、找真爱！</string>
+    <string name="share_title4">玩最好的手游，看最嗨的直播！</string>
+    <string name="share_title5">女神污脱帮，向她开炮！</string>
+    <string name="share_summary_just">我正在观看“</string>
+    <string name="share_summary1">”的直播，一起观战吧！</string>
+    <string name="share_summary2">”的直播，一起嗨吧！</string>
+    <string name="share_summary3">”的直播，等你来玩哦！</string>
+    <string name="share_video_summary1">”的视频，一起观战吧！</string>
+    <string name="share_video_summary2">”的视频，一起嗨吧！</string>
+    <string name="share_video_summary3">”的视频，等你来玩哦！</string>
+    <string name="share_anchor_title1">本宝宝在欢朋开播了！别说我没提醒你哦～</string>
+    <string name="share_anchor_title2">长夜漫漫，畅聊high玩随便搞！</string>
+    <string name="share_anchor_title3">看国民老婆怎么玩！羞羞哒！</string>
+    <string name="share_anchor_title4">声音太嗲，一开口直接酥掉啊！</string>
+    <string name="share_anchor_summary1">我在#欢朋直播#，等你来玩哦！</string>
+    <string name="share_anchor_summary2">我在#欢朋直播#，一起来嗨吧！</string>
+    <string name="share_anchor_summary3">我在#欢朋直播#，快来打赏吧！</string>
+    <string name="share_not_installed_weixin">未安装微信,请安装后分享</string>
+    <string name="share_not_installed_weibo">未安装微博,请安装后分享</string>
+    <string name="Record_linking">连接中...</string>
+    <string name="record_link_success">连接成功！</string>
+    <string name="net_mobile">您当前正在使用移动网络,建议切换到wifi</string>
+
+    <!--聊天-->
+    <string name="chat_list">聊天</string>
+    <string name="chat_empty_remind">不能发送空白信息</string>
+    <string name="chat_more">更多</string>
+    <string name="chat_cancel_order">取消订单</string>
+    <string name="chat_cancel_order_get">取消接单</string>
+    <string name="chat_refuse_order">拒单</string>
+    <string name="chat_detail_order">订单详情</string>
+    <string name="chat_detail_order_get">接单详情</string>
+    <string name="chat_refuse_back_order">拒绝退单</string>
+    <string name="chat_apply_cancel_order">申请退单</string>
+    <string name="chat_cancel">取消</string>
+    <string name="chat_status_ready">待接单</string>
+    <string name="chat_status_running">进行中</string>
+    <string name="chat_status_done">已完成</string>
+    <string name="chat_anchor_cancel">主播已取消:</string>
+    <string name="chat_anchor_reject">已拒单</string>
+    <string name="chat_user_cancel">用户退单中:</string>
+    <string name="chat_order_down">立即下单</string>
+    <string name="chat_done">完成</string>
+    <string name="chat_comment">评价</string>
+    <string name="chat_comment_done">已评价</string>
+    <string name="chat_order_up">接单</string>
+    <string name="chat_comment_ready">待评价</string>
+    <string name="chat_agree">同意</string>
+    <string name="chat_retry_order">重新下单</string>
+    <string name="chat_refuse">拒单</string>
+    <string name="chat_refuse_back">拒绝退单</string>
+    <string name="chat_price_message"> 欢朋币/局</string>
+    <!--技能详情-->
+    <string name="order_now">下单</string>
+    <string name="close">关闭</string>
+    <string name="comment_title">评价</string>
+    <string name="comment_hint">请填写你申诉的原因</string>
+    <string name="commit">提交</string>
+    <string name="charge_back_reason">退单原因</string>
+    <string name="cancel_hint">说说你取消的原因吧</string>
+    <string name="complains_hint">请填写您申诉的原因</string>
+    <string name="price_end">欢朋币/局</string>
+    <string name="huanpeng_currency">欢朋币/局</string>
+    <string name="comment">评论</string>
+    <string name="cert_not_passed">未通过</string>
+    <string name="under_cert">审核中</string>
+    <string name="add_cert">添加资质认证</string>
+    <string name="support_cert_anchor">目前支持平台认证主播</string>
+    <string name="price">价格</string>
+    <string name="skill_setting">技能设置</string>
+    <string name="modify_cert">修改认证</string>
+    <string name="modify_setting">修改设置</string>
+    <string name="skill_detail">技能详情</string>
+    <string name="other_reason">其他原因</string>
+    <string name="keep_cert">约玩资质</string>
+    <string name="comment_hint1">说说你的评价吧</string>
+    <string name="click_retry">数据获取失败，点击重试</string>
+
+
+    <!--礼物start-->
+    <string name="gift_recharge">充值</string>
+
+    <!--礼物end-->
+
+    <!--陪玩券列表start-->
+    <string name="wan_ticket">优惠券</string>
+    <string name="wan_ticket_t1">订单满足</string>
+    <string name="wan_ticket_t2">欢朋币可用</string>
+    <string name="congratulation">恭喜！</string>
+    <string name="pass_peiwan_cert">你已通过约玩资质认证！</string>
+    <string name="share_to_friends">分享给好友</string>
+    <string name="yuewan_coupon">约玩券</string>
+    <string name="wan_ticket_title">优惠券</string>
+    <string name="wan_ticket_date_info">有效日期至:</string>
+    <string name="wan_ticket_unit">欢朋币</string>
+    <string name="wan_ticket_title_second">约玩优惠券</string>
+    <string name="order_success">您已下单成功</string>
+    <string name="wan_ticket_fill">你还没有约玩券哦</string>
+    <string name="wan_ticket_available">所有约玩订单可用</string>
+    <string name="anchor_connecting">主播连线中，请你耐心等待...</string>
+
+    <!--陪玩券列表end-->
+</resources>

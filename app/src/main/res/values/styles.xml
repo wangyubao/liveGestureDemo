@@ -1,0 +1,121 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowAnimationStyle">@style/Activity_Anim</item>
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+    </style>
+
+    <style name="AppThemeRong" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowAnimationStyle">@style/Activity_Anim</item>
+        <!--<item name="android:windowTranslucentStatus">false</item>-->
+        <!--<item name="colorPrimary">@color/orange</item>-->
+        <item name="colorPrimaryDark">@color/orange</item>
+        <item name="colorAccent">@color/orange</item>
+    </style>
+
+    <!--对话框style-->
+    <style name="MyDialog" parent="Base.V7.Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:colorBackground">@color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="main_tab_buttom_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+        <item name="android:cacheColorHint">@null</item>
+        <item name="android:background">@null</item>
+        <item name="android:textSize">12sp</item>
+        <!--<item name="android:textColor">@color/main_textcolor_selector</item>-->
+        <item name="android:layout_marginTop">@dimen/tab_bottom_marginTop</item>
+        <item name="android:layout_marginBottom">@dimen/dp6</item>
+    </style>
+    <!--透明的-->
+    <style name="myTransparent">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+
+    <style name="pop_ver_anim_gift">
+        <item name="android:windowEnterAnimation">@anim/pop_in</item>
+        <item name="android:windowExitAnimation">@anim/pop_out</item>
+    </style>
+
+    <style name="pop_hor_anim_gift">
+        <item name="android:windowEnterAnimation">@anim/pop_giftin</item>
+        <item name="android:windowExitAnimation">@anim/pop_giftout</item>
+    </style>
+    <!--举报的图片上传ProgressBar-->
+    <style name="MyProgressBar">
+        <item name="android:indeterminateOnly">false</item>
+        <!--<item name="android:progressDrawable">@drawable/progressbar_drawable</item>-->
+        <item name="android:indeterminateDrawable">
+            @android:drawable/progress_indeterminate_horizontal
+        </item>
+        <item name="android:minHeight">20dip</item>
+        <item name="android:maxHeight">20dip</item>
+    </style>
+
+    <style name="Activity_Anim">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_open_enter_anim</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_open_exit_anim</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_close_enter_anim</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_close_exit</item>
+    </style>
+
+    <style name="Activity_Anim_Main">
+        <item name="android:activityOpenExitAnimation">@anim/activity_open_exit_anim</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_close_exit</item>
+    </style>
+
+    <!--<style name="AppTheme.NoAnim_Main" parent="Theme.AppCompat.Light.NoActionBar">-->
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--<item name="android:windowAnimationStyle">@style/Activity_Anim_Main</item>-->
+    <!--</style>-->
+
+    <!--<style name="AppTheme.NoAnim" parent="Theme.AppCompat.Light.NoActionBar">-->
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--<item name="android:windowBackground">@drawable/splash</item>-->
+    <!--</style>-->
+    <!--获取城市-->
+    <style name="horizontal_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/gray</item>
+    </style>
+
+    <style name="DialogActivity" parent="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"></style>
+
+    <style name="RatingBar" parent="@android:style/Widget.RatingBar">
+        <!--<item name="android:progressDrawable">@drawable/ratingbar_bg</item>-->
+        <item name="android:isIndicator">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:minHeight">@dimen/dp12</item>
+        <item name="android:maxHeight">@dimen/dp12</item>
+    </style>
+
+    <style name="RatingBarBig" parent="@android:style/Widget.RatingBar">
+        <!--<item name="android:progressDrawable">@drawable/ratingbar_big_bg</item>-->
+    </style>
+
+    <declare-styleable name="LineBreakLayout">
+        <!--标签之间左右距离-->
+        <attr name="leftAndRightSpace" format="dimension" />
+        <!--标签行距-->
+        <attr name="rowSpace" format="dimension" />
+        <!--左对齐或居中-->
+        <attr name="GRAVITY" format="integer" />
+        <!--左对齐或居中-->
+        <attr name="SelectColor" format="color" />
+        <!--左对齐或居中-->
+        <attr name="NoSelectColor" format="color" />
+    </declare-styleable>
+</resources>

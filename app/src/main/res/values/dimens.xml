@@ -1,0 +1,361 @@
+<resources>
+    <!-- 公共 -->
+    <dimen name="dialog_waitting_parent">80dp</dimen>
+    <dimen name="dialog_waitting_child">36dp</dimen>
+    <dimen name="title_height">51dp</dimen>
+    <!--MainActivity-->
+    <dimen name="tab_bottom_marginTop">5dp</dimen>
+    <dimen name="tab_bottom_height">54dp</dimen>
+
+    <dimen name="btn_startlive_height">44dp</dimen>
+    <dimen name="btn_startlive_width">58dp</dimen>
+
+
+    <!--关注  苏杭-->
+    <dimen name="txt_remind_title_textsize">18sp</dimen>
+    <dimen name="txt_remind_content_textsize">14sp</dimen>
+    <dimen name="txt_remind_pager_textsize">16sp</dimen>
+    <dimen name="txt_pager_title_textsize">15sp</dimen>
+    <dimen name="txt_onstart_name_textsize">12sp</dimen>
+    <dimen name="txt_onstart_kinds_textsize">12sp</dimen>
+    <dimen name="img_remind_fill_size">120dp</dimen>
+    <dimen name="txt_login_width">140dp</dimen>
+    <dimen name="txt_login_height">40dp</dimen>
+    <dimen name="tab_attention_height">48dp</dimen>
+    <dimen name="tab_attention_textsize">16dp</dimen>
+    <dimen name="img_onstart_placeholder_size">120dp</dimen>
+    <dimen name="rlayout_onstart_head_height">52dp</dimen>
+    <dimen name="img_onstart_head_size">40dp</dimen>
+    <dimen name="img_onstart_body_size">360dp</dimen>
+    <dimen name="txt_onstart_type_height">40dp</dimen>
+    <dimen name="txt_onstart_type_width">20dp</dimen>
+    <dimen name="rlayout_notstart_head_height">64dp</dimen>
+    <dimen name="img_notstart_head_size">48dp</dimen>
+    <dimen name="dp0.5">0.5dip</dimen>
+    <!--登录注册 苏杭-->
+    <dimen name="edt_loginandregister_content_textsize">15sp</dimen>
+    <dimen name="txt_loginandregister_button_textsize">18sp</dimen>
+    <dimen name="txt_loginandregister_forgetpass_textsize">14sp</dimen>
+    <dimen name="img_login_icon_size">28dp</dimen>
+    <dimen name="edt_login_username_height">43.5dp</dimen>
+    <dimen name="flayout_loginandregister_button_height">48dp</dimen>
+    <dimen name="progress_loginandregister_size">36dp</dimen>
+    <dimen name="txt_register_name_width">90dp</dimen>
+
+    <!--忘记密码 苏杭-->
+    <dimen name="edt_forget_textsize">15sp</dimen>
+    <dimen name="edt_forget_height">48dp</dimen>
+    <dimen name="txt_forget_cuountdown_height">32dp</dimen>
+    <dimen name="txt_forget_cuountdown_width">90dp</dimen>
+    <dimen name="txt_forget_remind_width">120dp</dimen>
+
+    <!--我的页面 苏杭-->
+    <dimen name="txt_mine_name_textsize">16sp</dimen>
+    <dimen name="txt_mine_attennum_textsize">12sp</dimen>
+    <dimen name="txt_mine_center_textsize">13sp</dimen>
+    <dimen name="txt_mine_bottom_textsize">16sp</dimen>
+    <dimen name="txt_mine_auth_textsize">12sp</dimen>
+    <dimen name="txt_mine_money_textsize">12sp</dimen>
+    <dimen name="rlayout_mine_title_height">150dp</dimen>
+    <dimen name="rlayout_mine_head_size">72dp</dimen>
+    <dimen name="cimg_mine_authentication_size">16dp</dimen>
+    <dimen name="img_mine_level_width">36dp</dimen>
+    <dimen name="img_mine_level_height">16dp</dimen>
+    <dimen name="img_mine_money_size">24dp</dimen>
+    <dimen name="img_mine_icon_size">28dp</dimen>
+    <dimen name="img_mine_authstatus_width">48dp</dimen>
+    <dimen name="img_mine_authstatus_height">18dp</dimen>
+
+    <!--主播主页  苏杭-->
+    <dimen name="txt_anchor_name_textsize">16sp</dimen>
+    <dimen name="txt_anchor_item_size">300dp</dimen>
+    <dimen name="txt_anchor_attennum_textsize">14sp</dimen>
+    <dimen name="txt_anchor_bodytitle_textsize">15sp</dimen>
+    <dimen name="txt_anchor_bodyname_textsize">12sp</dimen>
+    <dimen name="rlayout_anchor_title_height">356dp</dimen>
+    <dimen name="rlayout_anchor_head_size">80dp</dimen>
+    <dimen name="rlayout_anchor_head_bg_height">180dp</dimen>
+    <dimen name="rlayout_anchor_head_info_height">219dp</dimen>
+    <dimen name="cimg_anchor_authentication_size">16dp</dimen>
+    <dimen name="img_anchor_level_width">36dp</dimen>
+    <dimen name="img_anchor_level_height">16dp</dimen>
+    <dimen name="img_anchor_level_other_width">30dp</dimen>
+    <dimen name="img_anchor_level_other_height">20dp</dimen>
+    <dimen name="txt_anchor_attention_width">90dp</dimen>
+    <dimen name="txt_anchor_attention_height">32dp</dimen>
+    <dimen name="rlayout_anchor_bodytitle_height">52dp</dimen>
+    <dimen name="img_anchor_bodyhead_size">40dp</dimen>
+    <dimen name="img_anchor_body_size">360dp</dimen>
+    <dimen name="img_anchor_type_arrow_size">20dp</dimen>
+    <dimen name="txt_anchor_bodytype_width">40dp</dimen>
+    <dimen name="txt_anchor_bodytype_height">20dp</dimen>
+    <dimen name="rlayout_anchor_sort_height">44dp</dimen>
+    <dimen name="txt_pop_textsize">20sp</dimen>
+    <dimen name="img_anchor_none_size">120dp</dimen>
+    <dimen name="txt_anchor_none_textsize">16sp</dimen>
+
+    <!--历史 苏杭-->
+    <dimen name="rlayout_history_edit_height">51dp</dimen>
+    <dimen name="txt_history_edit_textsize">18sp</dimen>
+    <dimen name="img_history_fill_size">120dp</dimen>
+    <dimen name="txt_history_fill_textsize">16sp</dimen>
+    <dimen name="txt_history_title_textsize">15sp</dimen>
+    <dimen name="txt_history_name_textsize">14sp</dimen>
+    <dimen name="txt_history_game_textsize">12sp</dimen>
+    <dimen name="chk_history_size">20dp</dimen>
+    <dimen name="img_history_preview_width">120dp</dimen>
+    <dimen name="img_history_preview_height">90dp</dimen>
+    <dimen name="img_history_game_size">16dp</dimen>
+    <dimen name="txt_menu_delete_width">68dp</dimen>
+
+    <!--收藏 苏杭-->
+    <dimen name="rlayout_collection_edit_height">51dp</dimen>
+    <dimen name="txt_collection_edit_textsize">18sp</dimen>
+    <dimen name="img_collection_fill_size">120dp</dimen>
+    <dimen name="txt_collection_fill_textsize">16sp</dimen>
+    <dimen name="txt_collection_title_textsize">15sp</dimen>
+    <dimen name="txt_collection_name_textsize">14sp</dimen>
+    <dimen name="txt_collection_game_textsize">12sp</dimen>
+    <dimen name="chk_collection_size">20dp</dimen>
+    <dimen name="img_collection_preview_width">120dp</dimen>
+    <dimen name="img_collection_preview_height">90dp</dimen>
+    <dimen name="rlayout_collection_height">90dp</dimen>
+    <dimen name="img_collection_game_size">16dp</dimen>
+
+    <!--消息 苏杭-->
+    <dimen name="txt_message_fill_textsize">16sp</dimen>
+    <dimen name="txt_message_title_textsize">14sp</dimen>
+    <dimen name="txt_message_body_textsize">14sp</dimen>
+    <dimen name="txt_message_time_textsize">12sp</dimen>
+    <dimen name="img_message_preview_size">40dp</dimen>
+    <dimen name="chk_message_size">20dp</dimen>
+
+    <!--融云聊天-->
+    <dimen name="chat_conversation_head_size">45dp</dimen>
+    <dimen name="chat_conversation_head_margin_hor">15dp</dimen>
+    <dimen name="chat_conversation_content_margin_ver">10dp</dimen>
+    <dimen name="chat_conversation_describe_long">200dp</dimen>
+    <dimen name="chat_conversation_height">60dp</dimen>
+    <dimen name="chat_conversation_round">8dp</dimen>
+    <dimen name="chat_conversation_function_width">80dp</dimen>
+    <dimen name="chat_conversation_function_height">28dp</dimen>
+    <dimen name="chat_conversation_function_margin">15dp</dimen>
+    <dimen name="chat_conversation_statusbar_margintop">1.5dp</dimen>
+    <dimen name="chat_conversation_statusbar_marginbottom">8dp</dimen>
+    <dimen name="chat_conversation_statusbar_marginhor">30dp</dimen>
+    <dimen name="chat_conversation_statusbar_height">2dp</dimen>
+    <dimen name="chat_conversation_statusbar_circle_size">8dp</dimen>
+    <dimen name="chat_conversation_statustext_marginhor">15dp</dimen>
+    <dimen name="chat_conversation_statustext_margintop">7dp</dimen>
+
+
+    <dimen name="startlive_height">44dp</dimen>
+    <dimen name="startlive_width">58dp</dimen>
+    <!-- 分类的 -->
+    <dimen name="kinds_img_height">146dp</dimen>
+    <dimen name="kinds_itme_height">180dp</dimen>
+
+    <!--礼物start-->
+    <dimen name="gift_img_size">48dp</dimen>
+    <dimen name="gift_text_size">12sp</dimen>
+    <dimen name="gift_recharge_height">24dp</dimen>
+    <dimen name="gift_money_img_size">24dp</dimen>
+    <dimen name="gift_recharge_width">48dp</dimen>
+    <dimen name="gift_popwindow_landscape_width">230dp</dimen>
+    <dimen name="gift_popwindow_por_height">278dp</dimen>
+    <dimen name="gift_vp_height">185dp</dimen>
+    <dimen name="gift_money_textsize">10sp</dimen>
+    <dimen name="gift_indicator_size">5dp</dimen>
+    <dimen name="gift_tab_height">40dp</dimen>
+    <dimen name="gift_tab_indicator_por_width">74dp</dimen>
+    <dimen name="gift_tab_indicator_hor_width">39dp</dimen>
+    <dimen name="gift_item_dot">18dp</dimen>
+
+    <!--礼物end-->
+
+    <!--陪玩券列表-->
+    <dimen name="wan_ticket_bg_width">102dp</dimen>
+    <dimen name="wan_ticket_bg_height">100dp</dimen>
+    <dimen name="wan_ticket_textsize1">12sp</dimen>
+    <!--陪玩券列表-->
+
+    <!--礼物背包列表-->
+    <dimen name="img_package_gift">60dp</dimen>
+    <!--礼物背包列表-->
+
+
+    <!--padding,margin值-->
+    <dimen name="dp360">360.0dip</dimen>
+    <dimen name="dp285">285.0dip</dimen>
+    <dimen name="dp178">178.0dip</dimen>
+    <dimen name="dp164">164.0dip</dimen>
+    <dimen name="dp146">146.0dip</dimen>
+    <dimen name="dp180">180.0dip</dimen>
+    <dimen name="dp136">136.0dip</dimen>
+    <dimen name="dp140">140.0dip</dimen>
+    <dimen name="dp142">142.0dip</dimen>
+    <dimen name="dp115">115.0dip</dimen>
+    <dimen name="dp112">112.0dip</dimen>
+    <dimen name="dp110">110.0dip</dimen>
+    <dimen name="dp109">109.0dip</dimen>
+    <dimen name="dp108">108.0dip</dimen>
+    <dimen name="dp107">107.0dip</dimen>
+    <dimen name="dp106">106.0dip</dimen>
+    <dimen name="dp105">105.0dip</dimen>
+    <dimen name="dp104">104.0dip</dimen>
+    <dimen name="dp103">103.0dip</dimen>
+    <dimen name="dp102">102.0dip</dimen>
+    <dimen name="dp101">101.0dip</dimen>
+    <dimen name="dp100">100.0dip</dimen>
+    <dimen name="dp99">99.0dip</dimen>
+    <dimen name="dp98">98.0dip</dimen>
+    <dimen name="dp97">97.0dip</dimen>
+    <dimen name="dp96">96.0dip</dimen>
+    <dimen name="dp95">95.0dip</dimen>
+    <dimen name="dp94">94.0dip</dimen>
+    <dimen name="dp93">93.0dip</dimen>
+    <dimen name="dp92">92.0dip</dimen>
+    <dimen name="dp91">91.0dip</dimen>
+    <dimen name="dp90">90.0dip</dimen>
+    <dimen name="dp120">120.0dip</dimen>
+    <dimen name="dp213">213.0dip</dimen>
+    <dimen name="dp130">130.0dip</dimen>
+    <dimen name="dp89">89.0dip</dimen>
+    <dimen name="dp88">88.0dip</dimen>
+    <dimen name="dp87">87.0dip</dimen>
+    <dimen name="dp86">86.0dip</dimen>
+    <dimen name="dp85">85.0dip</dimen>
+    <dimen name="dp84">84.0dip</dimen>
+    <dimen name="dp83">83.0dip</dimen>
+    <dimen name="dp82">82.0dip</dimen>
+    <dimen name="dp81">81.0dip</dimen>
+    <dimen name="dp80">80.0dip</dimen>
+    <dimen name="dp60">60.0dip</dimen>
+    <dimen name="dp79">79.0dip</dimen>
+    <dimen name="dp78">78.0dip</dimen>
+    <dimen name="dp77">77.0dip</dimen>
+    <dimen name="dp76">76.0dip</dimen>
+    <dimen name="dp75">75.0dip</dimen>
+    <dimen name="dp74">74.0dip</dimen>
+    <dimen name="dp72">72.0dip</dimen>
+    <dimen name="dp70">70.0dip</dimen>
+    <dimen name="dp32">32.0dip</dimen>
+    <dimen name="dp52">52.0dip</dimen>
+    <dimen name="dp39">39.0dip</dimen>
+    <dimen name="dp40">40.0dip</dimen>
+    <dimen name="dp62">62.0dip</dimen>
+    <dimen name="dp48">48.0dip</dimen>
+    <dimen name="dp49">49.0dip</dimen>
+    <dimen name="dp45">45.0dip</dimen>
+    <dimen name="dp46">46.0dip</dimen>
+    <dimen name="dp36">36.0dip</dimen>
+    <dimen name="dp55">55.0dip</dimen>
+    <dimen name="dp56">56.0dip</dimen>
+    <dimen name="dp58">58.0dip</dimen>
+    <dimen name="dp59">59.0dip</dimen>
+    <dimen name="dp64">64.0dip</dimen>
+    <dimen name="dp53">53.0dip</dimen>
+    <dimen name="dp51">51.0dip</dimen>
+    <dimen name="dp50">50.0dip</dimen>
+    <dimen name="dp66">66.0dip</dimen>
+    <dimen name="dp31">31.0dip</dimen>
+    <dimen name="dp44">44.0dip</dimen>
+    <dimen name="dp43.5">43.5dip</dimen>
+    <dimen name="dp43">43.0dip</dimen>
+    <dimen name="dp42">42.0dip</dimen>
+    <dimen name="dp41">41.0dip</dimen>
+    <dimen name="dp30">30.0dip</dimen>
+    <dimen name="dp29">29.0dip</dimen>
+    <dimen name="dp28">28.0dip</dimen>
+    <dimen name="dp27">27.0dip</dimen>
+    <dimen name="dp26">26.0dip</dimen>
+    <dimen name="dp25">25.0dip</dimen>
+    <dimen name="dp24">24.0dip</dimen>
+    <dimen name="dp23">23.0dip</dimen>
+    <dimen name="dp22">22.0dip</dimen>
+    <dimen name="dp21">21.0dip</dimen>
+    <dimen name="dp20">20.0dip</dimen>
+    <dimen name="dp19">19.0dip</dimen>
+    <dimen name="dp18">18.0dip</dimen>
+    <dimen name="dp17">17.0dip</dimen>
+    <dimen name="dp16">16.0dip</dimen>
+    <dimen name="dp15">15.0dip</dimen>
+    <dimen name="dp14">14.0dip</dimen>
+    <dimen name="dp13">13.0dip</dimen>
+    <dimen name="dp12">12.0dip</dimen>
+    <dimen name="dp12.5">12.5dip</dimen>
+    <dimen name="dp11">11.0dip</dimen>
+    <dimen name="dp11.5">11.5dip</dimen>
+    <dimen name="dp10">10.0dip</dimen>
+    <dimen name="dp9">9.0dip</dimen>
+    <dimen name="dp8">8.0dip</dimen>
+    <dimen name="dp7">7.0dip</dimen>
+    <dimen name="dp6">6.0dip</dimen>
+    <dimen name="dp5">5.0dip</dimen>
+    <dimen name="dp4">4.0dip</dimen>
+    <dimen name="dp3">3.0dip</dimen>
+    <dimen name="dp2">2.0dip</dimen>
+    <dimen name="dp1">1.0dip</dimen>
+    <dimen name="dp0">0.0dip</dimen>
+    <dimen name="sp40">40.0sp</dimen>
+    <dimen name="sp38">38.0sp</dimen>
+    <dimen name="sp30">30.0sp</dimen>
+    <dimen name="sp28">28.0sp</dimen>
+    <dimen name="sp24">24.0sp</dimen>
+    <dimen name="sp20">20.0sp</dimen>
+    <dimen name="sp19">19.0sp</dimen>
+    <dimen name="sp18">18.0sp</dimen>
+    <dimen name="sp17">17.0sp</dimen>
+    <dimen name="sp16">16.0sp</dimen>
+    <dimen name="sp15">15.0sp</dimen>
+    <dimen name="sp14">14.0sp</dimen>
+    <dimen name="sp13">13.0sp</dimen>
+    <dimen name="sp12">12.0sp</dimen>
+    <dimen name="sp11">11.0sp</dimen>
+    <dimen name="sp10">10.0sp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <dimen name="dp286">286.0dip</dimen>
+    <dimen name="dp288">288.0dip</dimen>
+    <dimen name="dp378">378.0dip</dimen>
+    <dimen name="dp250">250.0dip</dimen>
+    <dimen name="dp256">256.0dip</dimen>
+    <dimen name="dp275">275.0dip</dimen>
+    <dimen name="dp310">310.0dip</dimen>
+    <dimen name="dp318">318.0dip</dimen>
+    <dimen name="dp353">353.0dip</dimen>
+    <dimen name="dp640">640.0dip</dimen>
+    <dimen name="dp500">500.0dip</dimen>
+    <dimen name="dp450">450.0dip</dimen>
+    <dimen name="dp244">244.0dip</dimen>
+    <dimen name="dp240">240.0dip</dimen>
+    <dimen name="dp230">230.0dip</dimen>
+    <dimen name="dp202">202.0dip</dimen>
+    <dimen name="dp200">200.0dip</dimen>
+    <dimen name="dp203">203.0dip</dimen>
+    <dimen name="dp300">300.0dip</dimen>
+    <dimen name="dp190">190.0dip</dimen>
+    <dimen name="dp160">160.0dip</dimen>
+    <dimen name="dp162">162.0dip</dimen>
+    <dimen name="dp152">152.0dip</dimen>
+    <dimen name="dp155">155.0dip</dimen>
+    <dimen name="dp150">150.0dip</dimen>
+    <dimen name="dp280">280.0dip</dimen>
+    <dimen name="dp282">282.0dip</dimen>
+    <dimen name="dp260">260.0dip</dimen>
+    <dimen name="dp144">144.0dip</dimen>
+    <dimen name="dp135">135.0dip</dimen>
+    <dimen name="dp134">134.0dip</dimen>
+    <dimen name="dp34">34.0dip</dimen>
+    <dimen name="dp123">123.0dip</dimen>
+    <dimen name="dp124">124.0dip</dimen>
+    <dimen name="dp220">220.0dip</dimen>
+    <dimen name="dp63">63.0dip</dimen>
+    <dimen name="dp68">68.0dip</dimen>
+    <dimen name="wan_ticket_title_textsize">16sp</dimen>
+    <dimen name="wan_ticket_value_textsize">38sp</dimen>
+
+</resources>
