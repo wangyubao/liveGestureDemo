@@ -47,7 +47,8 @@
         <com.wanghui.livegesturedemo.widget.DragLayout
             android:id="@+id/drag_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:visibility="visible">
 
             <com.wanghui.livegesturedemo.widget.CanDragFrameLayout
                 android:id="@+id/can_drag_layout"
@@ -98,7 +99,15 @@
 
         </com.wanghui.livegesturedemo.widget.DragLayout>
 
-
+        <ImageView
+            android:id="@+id/bimg_small_live_switch1"
+            android:layout_width="@dimen/dp36"
+            android:layout_height="@dimen/dp36"
+            android:src="@drawable/liveroom_small_switch_selector"
+            android:visibility="visible"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/dp10"/>
 
     </RelativeLayout>
 
