@@ -13,5 +13,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
+        <RelativeLayout
+            android:id="@+id/rl_start"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tv_start"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@mipmap/mp4_button_start_pressed"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
     </FrameLayout>
 </layout>

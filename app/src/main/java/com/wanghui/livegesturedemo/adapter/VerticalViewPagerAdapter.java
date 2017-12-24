@@ -60,7 +60,7 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
     }
 
 
-    private boolean shouldIntercept;
+    private boolean shouldIntercept;//是否在小屏内
     private float downX;
     private float downY;
     @Override
@@ -91,14 +91,11 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
                             }
                             break;
                         case MotionEvent.ACTION_UP:
+                            //自定义关闭小屏的点击事件
                             float upX = event.getRawX();
                             float upY = event.getRawY();
                             boolean hasMove;
-                            if (Math.abs(upX - downX) < 5 && Math.abs(upY - downY) < 5) {
-                                hasMove = false;
-                            } else {
-                                hasMove = true;
-                            }
+                            hasMove = !(Math.abs(upX - downX) < 5 && Math.abs(upY - downY) < 5);
                             if (shouldIntercept && !hasMove) {
                                 int visibility = mBind.ivCloseSmall.getVisibility();
                                 if (visibility == VISIBLE) {
@@ -130,27 +127,6 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
             }
         });
 
-
-
-//        if (mBinding != null) {
-//            mBinding.hslideflayoutLiveroom.setOnSlideFinishListening(new HorizatialSlideFrameLayout.OnSlideFinishListening() {
-//                @Override
-//                public void slidefinish(boolean isShow) {
-//                    if (viewHolderUp != null) {
-//                        viewHolderUp.mBind.hslideflayoutLiveroom.reShow(isShow, viewHolderUp.mBind.hslideflayoutLiveroom.getScrollX());
-//                    }
-//                    if (viewHolderDown != null) {
-//                        viewHolderDown.mBind.hslideflayoutLiveroom.reShow(isShow, viewHolderDown.mBind.hslideflayoutLiveroom.getScrollX());
-//                    }
-////                    slidePresentTranslateXCallback(isShow);
-//                }
-//
-//                @Override
-//                public void onSlideScrolled(int offset) {
-//                    slidePresentTranslateXCallback(offset);
-//                }
-//            });
-//        }
         container.addView(contentView);
 
         return contentView;
@@ -163,17 +139,14 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
 
             ijkPlayerHelper = IjkPlayerHelper.getInstance();
         }
-        if (ijkMediaPlayer != null) {
-            ijkPlayerHelper.endPlayer(ijkMediaPlayer);
+        ijkPlayerHelper.endPlayer(ijkMediaPlayer);
+
+        ijkPlayerHelper.endPlayer(cameraPlayer);
+
+        if (mBinding.playerFullscreenSurfaceView != null && mBinding.surfaceCamera != null) {
+            ijkMediaPlayer = ijkPlayerHelper.open(dataList.get(position), mBinding.playerFullscreenSurfaceView.getHolder(), true);
+            cameraPlayer = ijkPlayerHelper.openWithTextureView(dataList.get(position), new Surface(mBinding.surfaceCamera.getSurfaceTexture()));
         }
-
-        if (cameraPlayer != null) {
-            ijkPlayerHelper.endPlayer(cameraPlayer);
-        }
-
-
-        ijkMediaPlayer = ijkPlayerHelper.open(dataList.get(position), mBinding.playerFullscreenSurfaceView.getHolder(), true);
-        cameraPlayer = ijkPlayerHelper.openWithTextureView(dataList.get(position), new Surface(mBinding.surfaceCamera.getSurfaceTexture()));
 
     }
 
@@ -200,7 +173,14 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
                     isCameraLive = true;
                 }
                 break;
+//            case R.id.tv_start:
+//                 mBinding.rlStart.setVisibility(GONE);
+//                 play(0);
+//                break;
 
         }
     }
+
+
+
 }

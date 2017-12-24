@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.wanghui.livegesturedemo.adapter.VerticalViewPagerAdapter;
 import com.wanghui.livegesturedemo.databinding.ActivityMainBinding;
@@ -13,7 +14,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityMainBinding mainBinding;
     private VerticalViewPagerAdapter mAdapter;
     private List<String> mList = new ArrayList<>();
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initData();
         initPagerAdapter();
+        mainBinding.tvStart.setOnClickListener(this);
     }
 
     private void initData() {
@@ -51,5 +53,18 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onClick(View v) {
+        mainBinding.rlStart.setVisibility(View.GONE);
+        mAdapter.play(0);
     }
 }
