@@ -3,6 +3,7 @@ package com.wanghui.livegesturedemo.adapter;
 import android.app.Activity;
 import android.graphics.RectF;
 import android.support.v4.view.PagerAdapter;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.Surface;
@@ -13,6 +14,7 @@ import com.wanghui.livegesturedemo.R;
 import com.wanghui.livegesturedemo.Utils.IjkPlayerHelper;
 import com.wanghui.livegesturedemo.Utils.LogUtil;
 import com.wanghui.livegesturedemo.Utils.ScreenUtils;
+import com.wanghui.livegesturedemo.bean.LiveViewersPicBean;
 import com.wanghui.livegesturedemo.databinding.ItemLiveRoomPagerBinding;
 
 import java.util.ArrayList;
@@ -32,7 +34,6 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
     private List<String> dataList;
     private Activity context;
     private ItemLiveRoomPagerBinding mBinding;
-    private ItemLiveRoomPagerBinding lastBinding;
     private List<ItemLiveRoomPagerBinding> bindingList = new ArrayList<>();
     private IjkPlayerHelper ijkPlayerHelper;
     private IjkMediaPlayer ijkMediaPlayer;
@@ -59,8 +60,7 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
         container.removeView(contentView);
     }
 
-
-    private boolean shouldIntercept;//是否在小屏内
+    private boolean isDownInSmall;//是否在小屏内
     private float downX;
     private float downY;
     @Override
@@ -75,61 +75,86 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
         mBind.dragLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                RectF rect = ScreenUtils.calcViewScreenLocation(mBind.canDragLayout);
-                float x = event.getRawX();
-                float y = event.getRawY();
-                if (rect.contains(x, y) && mBind.canDragLayout.getVisibility() == View.VISIBLE) {
-                    switch (event.getAction()) {
-                        case MotionEvent.ACTION_DOWN://只有down在小播放屏时内才能触发拖动
-                            shouldIntercept = true;
-                            downX = event.getRawX();
-                            downY = event.getRawY();
-                            return false;
-                        case MotionEvent.ACTION_MOVE:
-                            if (shouldIntercept) {
-                                return false;
-                            }
-                            break;
-                        case MotionEvent.ACTION_UP:
-                            //自定义关闭小屏的点击事件
-                            float upX = event.getRawX();
-                            float upY = event.getRawY();
-                            boolean hasMove;
-                            hasMove = !(Math.abs(upX - downX) < 5 && Math.abs(upY - downY) < 5);
-                            if (shouldIntercept && !hasMove) {
-                                int visibility = mBind.ivCloseSmall.getVisibility();
-                                if (visibility == VISIBLE) {
-                                    mBind.ivCloseSmall.setVisibility(INVISIBLE);
-                                } else {
-                                    mBind.ivCloseSmall.setVisibility(VISIBLE);
-                                }
-                            }
-                            LogUtil.i("LiveRoomNewPagerAdapter", "up事件");
-                        case MotionEvent.ACTION_CANCEL:
-                            if (shouldIntercept) {
-                                shouldIntercept = false;
-                                return false;
-                            }
-                            break;
-                        default:
-                            return false;
-
-                    }
-                } else if (shouldIntercept) {//当down在小屏内时，隔绝外部事件的触发，尤其是当手指移动过快的时候事件会落到小屏外
-                    return false;
-                }
-                if (shouldIntercept) {
-                    return false;
-                } else {
-                    LogUtil.i("LiveRoomNewPager", "触发事件穿透");
-                    return mBind.hslideflayoutLiveroom.dispatchTouchEvent(event);//当down没有在小屏内时，让事件穿透到下一层
-                }
+                return handleGesture(event, mBind);
             }
         });
+
+        LinearLayoutManager linearLayoutManagerVer = new LinearLayoutManager(context);
+        mBind.hlistLiveroomViewersVer.setLayoutManager(linearLayoutManagerVer);
+        mBind.hlistLiveroomViewersVer.setHasFixedSize(true);
+        linearLayoutManagerVer.setOrientation(LinearLayoutManager.HORIZONTAL);
+        mBind.hlistLiveroomViewersVer.setAdapter(new ViewsPicHorizontalRvAdapter(context, initViewerData()));
 
         container.addView(contentView);
 
         return contentView;
+    }
+
+    private int[] initViewerData() {
+        int[] imgResArray = {
+                R.mipmap.em_1,
+                R.mipmap.em_2,
+                R.mipmap.em_3,
+                R.mipmap.em_4,
+                R.mipmap.em_5,
+                R.mipmap.em_6,
+                R.mipmap.em_7,
+                R.mipmap.em_8,
+                R.mipmap.em_9,
+                R.mipmap.em_10};
+        return imgResArray;
+    }
+
+    private boolean handleGesture(MotionEvent event, ItemLiveRoomPagerBinding mBind) {
+        RectF rect = ScreenUtils.calcViewScreenLocation(mBind.canDragLayout);
+        float x = event.getRawX();
+        float y = event.getRawY();
+        if (rect.contains(x, y) && mBind.canDragLayout.getVisibility() == View.VISIBLE) {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN://只有down在小播放屏时内才能触发拖动
+                    isDownInSmall = true;
+                    downX = event.getRawX();
+                    downY = event.getRawY();
+                    return false;
+                case MotionEvent.ACTION_MOVE:
+                    if (isDownInSmall) {
+                        return false;
+                    }
+                    break;
+                case MotionEvent.ACTION_UP:
+                    //自定义关闭小屏的点击事件
+                    float upX = event.getRawX();
+                    float upY = event.getRawY();
+                    boolean hasMove;
+                    hasMove = !(Math.abs(upX - downX) < 5 && Math.abs(upY - downY) < 5);
+                    if (isDownInSmall && !hasMove) {
+                        int visibility = mBind.ivCloseSmall.getVisibility();
+                        if (visibility == VISIBLE) {
+                            mBind.ivCloseSmall.setVisibility(INVISIBLE);
+                        } else {
+                            mBind.ivCloseSmall.setVisibility(VISIBLE);
+                        }
+                    }
+                    LogUtil.i("LiveRoomNewPagerAdapter", "up事件");
+                case MotionEvent.ACTION_CANCEL:
+                    if (isDownInSmall) {
+                        isDownInSmall = false;
+                        return false;
+                    }
+                    break;
+                default:
+                    return false;
+
+            }
+        } else if (isDownInSmall) {//当down在小屏内时，隔绝外部事件的触发，尤其是当手指移动过快的时候事件会落到小屏外
+            return false;
+        }
+        if (isDownInSmall) {
+            return false;
+        } else {
+            LogUtil.i("LiveRoomNewPager", "触发事件穿透");
+            return mBind.hslideflayoutLiveroom.dispatchTouchEvent(event);//当down没有在小屏内时，让事件穿透到下一层
+        }
     }
 
     public void play(int position) {
@@ -173,11 +198,6 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
                     isCameraLive = true;
                 }
                 break;
-//            case R.id.tv_start:
-//                 mBinding.rlStart.setVisibility(GONE);
-//                 play(0);
-//                break;
-
         }
     }
 

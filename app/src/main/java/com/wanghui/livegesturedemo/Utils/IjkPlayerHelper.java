@@ -143,6 +143,7 @@ public class IjkPlayerHelper implements TextureView.SurfaceTextureListener {
         }
 
         player.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        player.setVolume(0f,0f);
         player.setScreenOnWhilePlaying(true);
         player.prepareAsync();
         return player;

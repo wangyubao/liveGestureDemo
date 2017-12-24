@@ -1,7 +1,6 @@
 package com.wanghui.livegesturedemo;
 
 import android.databinding.DataBindingUtil;
-import android.net.Uri;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +9,6 @@ import android.view.View;
 import com.wanghui.livegesturedemo.adapter.VerticalViewPagerAdapter;
 import com.wanghui.livegesturedemo.databinding.ActivityMainBinding;
 
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initData() {
         mList.add("rtmp://live.hkstv.hk.lxdns.com/live/hks");
-        mList.add("http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8");
+        mList.add("http://ivi.bupt.edu.cn/hls/cctv5phd.m3u8");
     }
 
     private void initPagerAdapter() {

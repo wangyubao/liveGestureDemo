@@ -20,7 +20,7 @@
             <SurfaceView
                 android:id="@+id/player_fullscreen_surface_view"
                 android:layout_width="match_parent"
-                android:layout_height="260dp"
+                android:layout_height="230dp"
                 android:layout_gravity="top" />
         </FrameLayout>
         <com.wanghui.livegesturedemo.widget.HorizatialSlideFrameLayout
@@ -30,15 +30,27 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <ImageView
-                    android:id="@+id/bimg_small_live_switch"
-                    android:layout_width="@dimen/dp36"
+
+                <com.wanghui.livegesturedemo.widget.ForceRecycleView
+                    android:id="@+id/hlist_liveroom_viewers_ver"
+                    android:layout_width="280dp"
                     android:layout_height="@dimen/dp36"
-                    android:src="@drawable/liveroom_small_switch_selector"
-                    android:visibility="visible"
+                    android:layout_centerVertical="true"
+                    android:scrollbars="none"
+                    android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_margin="@dimen/dp10"/>
+                    android:orientation="horizontal"/>
+
+                <!--<ImageView-->
+
+                    <!--android:layout_width="@dimen/dp36"-->
+                    <!--android:layout_height="@dimen/dp36"-->
+                    <!--android:src="@drawable/liveroom_small_switch_selector"-->
+                    <!--android:visibility="visible"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_alignParentBottom="true"-->
+                    <!--android:layout_margin="@dimen/dp10"/>-->
+
             </RelativeLayout>
         </com.wanghui.livegesturedemo.widget.HorizatialSlideFrameLayout>
 
@@ -100,14 +112,14 @@
         </com.wanghui.livegesturedemo.widget.DragLayout>
 
         <ImageView
-            android:id="@+id/bimg_small_live_switch1"
+            android:id="@+id/bimg_small_live_switch"
             android:layout_width="@dimen/dp36"
             android:layout_height="@dimen/dp36"
             android:src="@drawable/liveroom_small_switch_selector"
-            android:visibility="visible"
-            android:layout_alignParentLeft="true"
+            android:visibility="gone"
+            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/dp10"/>
+            android:layout_margin="@dimen/dp10" />
 
 
 

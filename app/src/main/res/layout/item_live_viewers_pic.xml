@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="@dimen/dp46"
+        android:layout_height="@dimen/dp36"
+        android:paddingRight="@dimen/dp10">
+
+        <com.wanghui.livegesturedemo.widget.CircleImageView
+            android:id="@+id/iv_item_show_pic"
+            android:layout_width="@dimen/dp36"
+            android:layout_height="@dimen/dp36"
+            android:src="@mipmap/fill_default_avatar" />
+
+    </FrameLayout>
+</FrameLayout>
