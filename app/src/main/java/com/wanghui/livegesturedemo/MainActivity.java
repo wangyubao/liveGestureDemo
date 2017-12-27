@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initData() {
-        mList.add("rtmp://live.hkstv.hk.lxdns.com/live/hks");
-        mList.add("http://ivi.bupt.edu.cn/hls/cctv5phd.m3u8");
+        mList.add("rtmp://live.hkstv.hk.lxdns.com/live/hks");//香港卫视直播地址
+        mList.add("http://ivi.bupt.edu.cn/hls/cctv5phd.m3u8");//CCTV5直播地址
     }
 
     private void initPagerAdapter() {
@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
-
 
     }
 
