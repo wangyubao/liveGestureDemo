@@ -42,16 +42,6 @@
                     android:layout_alignParentRight="true"
                     android:orientation="horizontal"/>
 
-                <!--<ImageView-->
-
-                    <!--android:layout_width="@dimen/dp36"-->
-                    <!--android:layout_height="@dimen/dp36"-->
-                    <!--android:src="@drawable/liveroom_small_switch_selector"-->
-                    <!--android:visibility="visible"-->
-                    <!--android:layout_alignParentRight="true"-->
-                    <!--android:layout_alignParentBottom="true"-->
-                    <!--android:layout_margin="@dimen/dp10"/>-->
-
             </RelativeLayout>
         </com.wanghui.livegesturedemo.widget.HorizatialSlideFrameLayout>
 
@@ -122,12 +112,25 @@
             android:layout_alignParentBottom="true"
             android:layout_margin="@dimen/dp10" />
 
+        <ImageView
+            android:id="@+id/bimg_send_gift"
+            android:layout_width="@dimen/dp36"
+            android:layout_height="@dimen/dp36"
+            android:src="@drawable/liveroom_send_gift"
+            android:visibility="visible"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/dp10" />
+
         <com.opensource.svgaplayer.SVGAImageView
+            android:id="@+id/img_send_car"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:scaleType="fitCenter"
             app:source="posche.svga"
-            app:antiAlias="true" />
+            app:antiAlias="true"
+            app:autoPlay="false"
+            app:loopCount="1"/>
 
     </RelativeLayout>
 

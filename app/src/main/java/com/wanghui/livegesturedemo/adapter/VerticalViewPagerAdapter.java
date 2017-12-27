@@ -10,6 +10,7 @@ import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.opensource.svgaplayer.SVGAImageView;
 import com.wanghui.livegesturedemo.R;
 import com.wanghui.livegesturedemo.Utils.IjkPlayerHelper;
 import com.wanghui.livegesturedemo.Utils.LogUtil;
@@ -78,6 +79,9 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
                 return handleGesture(event, mBind);
             }
         });
+        mBind.bimgSendGift.setTag(mBind.imgSendCar);
+        mBind.imgSendCar.stopAnimation();
+        mBind.bimgSendGift.setOnClickListener(this);
 
         LinearLayoutManager linearLayoutManagerVer = new LinearLayoutManager(context);
         mBind.hlistLiveroomViewersVer.setLayoutManager(linearLayoutManagerVer);
@@ -197,6 +201,13 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
                     mBinding.bimgSmallLiveSwitch.setVisibility(GONE);
                     isCameraLive = true;
                 }
+                break;
+            case R.id.bimg_send_gift:
+                SVGAImageView svgaImageView = (SVGAImageView) v.getTag();
+                if(svgaImageView.isAnimating())
+                    svgaImageView.stopAnimation();
+                else
+                    svgaImageView.startAnimation();
                 break;
         }
     }
