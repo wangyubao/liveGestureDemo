@@ -6,7 +6,7 @@
 
 
 
-<img src="https://github.com/wangyubao/liveGestureDemo/blob/master/Image/51514281949_.pic.jpg" width = "300" alt="效果图" align=center />
+<img src="https://github.com/wangyubao/liveGestureDemo/blob/master/Image/51514281949_.pic.jpg" width = "300" alt="效果图" align=left />
 
-<img src="https://github.com/laoshaoguo/liveGestureDemo1/blob/master/Image/20171228145629.png" width = "300" alt="弹幕效果图" align=center />
+<img src="https://github.com/laoshaoguo/liveGestureDemo1/blob/master/Image/20171228145629.png" width = "300" alt="弹幕效果图" align=right />
 
