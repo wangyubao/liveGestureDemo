@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/liveGestureDemo.iml" filepath="$PROJECT_DIR$/liveGestureDemo.iml" />
+      <module fileurl="file://D:\android_clone\liveGestureDemo1\liveGestureDemo.iml" filepath="D:\android_clone\liveGestureDemo1\liveGestureDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/liveGestureDemo1.iml" filepath="$PROJECT_DIR$/liveGestureDemo1.iml" />
       <module fileurl="file://$PROJECT_DIR$/svgalibrary/svgalibrary.iml" filepath="$PROJECT_DIR$/svgalibrary/svgalibrary.iml" />
     </modules>
   </component>

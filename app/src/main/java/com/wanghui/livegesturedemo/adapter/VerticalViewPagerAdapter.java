@@ -1,9 +1,17 @@
 package com.wanghui.livegesturedemo.adapter;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.graphics.RectF;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.LinearLayoutManager;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.Surface;
@@ -11,16 +19,40 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.opensource.svgaplayer.SVGAImageView;
+import com.wanghui.livegesturedemo.MainActivity;
 import com.wanghui.livegesturedemo.R;
+import com.wanghui.livegesturedemo.Utils.Danmu;
 import com.wanghui.livegesturedemo.Utils.IjkPlayerHelper;
 import com.wanghui.livegesturedemo.Utils.LogUtil;
 import com.wanghui.livegesturedemo.Utils.ScreenUtils;
 import com.wanghui.livegesturedemo.bean.LiveViewersPicBean;
 import com.wanghui.livegesturedemo.databinding.ItemLiveRoomPagerBinding;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import master.flame.danmaku.controller.IDanmakuView;
+import master.flame.danmaku.danmaku.loader.ILoader;
+import master.flame.danmaku.danmaku.loader.IllegalDataException;
+import master.flame.danmaku.danmaku.loader.android.DanmakuLoaderFactory;
+import master.flame.danmaku.danmaku.model.BaseDanmaku;
+import master.flame.danmaku.danmaku.model.Danmaku;
+import master.flame.danmaku.danmaku.model.DanmakuTimer;
+import master.flame.danmaku.danmaku.model.IDisplayer;
+import master.flame.danmaku.danmaku.model.android.BaseCacheStuffer;
+import master.flame.danmaku.danmaku.model.android.DanmakuContext;
+import master.flame.danmaku.danmaku.model.android.Danmakus;
+import master.flame.danmaku.danmaku.model.android.SpannedCacheStuffer;
+import master.flame.danmaku.danmaku.parser.BaseDanmakuParser;
+import master.flame.danmaku.danmaku.parser.IDataSource;
+import master.flame.danmaku.danmaku.parser.android.BiliDanmukuParser;
+import master.flame.danmaku.danmaku.util.IOUtils;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
 import static android.view.View.GONE;
@@ -39,10 +71,12 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
     private IjkPlayerHelper ijkPlayerHelper;
     private IjkMediaPlayer ijkMediaPlayer;
     private IjkMediaPlayer cameraPlayer;
+    public Danmu danmaku;
 
-    public VerticalViewPagerAdapter(Activity context, List<String> dataList){
+    public VerticalViewPagerAdapter(Activity context, List<String> dataList) {
         this.dataList = dataList;
         this.context = context;
+
     }
 
     @Override
@@ -64,10 +98,13 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
     private boolean isDownInSmall;//是否在小屏内
     private float downX;
     private float downY;
+    ItemLiveRoomPagerBinding mBind;
+
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         View contentView = LayoutInflater.from(context).inflate(R.layout.item_live_room_pager, null, true);
-        final ItemLiveRoomPagerBinding mBind = ItemLiveRoomPagerBinding.bind(contentView);
+//        final ItemLiveRoomPagerBinding
+        mBind = ItemLiveRoomPagerBinding.bind(contentView);
         bindingList.add(mBind);
         mBind.ivCloseSmall.setOnClickListener(this);
         mBind.bimgSmallLiveSwitch.setOnClickListener(this);
@@ -82,13 +119,15 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
         mBind.bimgSendGift.setTag(mBind.imgSendCar);
         mBind.imgSendCar.stopAnimation();
         mBind.bimgSendGift.setOnClickListener(this);
+        mBind.playDan.setOnClickListener(this);
+
 
         LinearLayoutManager linearLayoutManagerVer = new LinearLayoutManager(context);
         mBind.hlistLiveroomViewersVer.setLayoutManager(linearLayoutManagerVer);
         mBind.hlistLiveroomViewersVer.setHasFixedSize(true);
         linearLayoutManagerVer.setOrientation(LinearLayoutManager.HORIZONTAL);
         mBind.hlistLiveroomViewersVer.setAdapter(new ViewsPicHorizontalRvAdapter(context, initViewerData()));
-
+        danmaku= new Danmu(context,mBind.playDan);
         container.addView(contentView);
 
         return contentView;
@@ -180,6 +219,7 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
     }
 
     private boolean isCameraLive = true;
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -204,14 +244,21 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
                 break;
             case R.id.bimg_send_gift:
                 SVGAImageView svgaImageView = (SVGAImageView) v.getTag();
-                if(svgaImageView.isAnimating())
+                if (svgaImageView.isAnimating())
                     svgaImageView.stopAnimation();
                 else
                     svgaImageView.startAnimation();
+                if (danmaku!=null){
+                    for (int i = 0; i <3 ; i++) {
+                        danmaku.addDanmaku(true);
+                    }
+                }
+
+                break;
+
+            default:
                 break;
         }
     }
-
-
 
 }
