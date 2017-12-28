@@ -71,7 +71,8 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
     private IjkPlayerHelper ijkPlayerHelper;
     private IjkMediaPlayer ijkMediaPlayer;
     private IjkMediaPlayer cameraPlayer;
-    public Danmu danmaku;
+//    public Danmu danmaku;
+    public List<Danmu> danmuList = new ArrayList<>();
 
     public VerticalViewPagerAdapter(Activity context, List<String> dataList) {
         this.dataList = dataList;
@@ -98,13 +99,13 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
     private boolean isDownInSmall;//是否在小屏内
     private float downX;
     private float downY;
-    ItemLiveRoomPagerBinding mBind;
+
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         View contentView = LayoutInflater.from(context).inflate(R.layout.item_live_room_pager, null, true);
 //        final ItemLiveRoomPagerBinding
-        mBind = ItemLiveRoomPagerBinding.bind(contentView);
+        final ItemLiveRoomPagerBinding mBind = ItemLiveRoomPagerBinding.bind(contentView);
         bindingList.add(mBind);
         mBind.ivCloseSmall.setOnClickListener(this);
         mBind.bimgSmallLiveSwitch.setOnClickListener(this);
@@ -127,7 +128,8 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
         mBind.hlistLiveroomViewersVer.setHasFixedSize(true);
         linearLayoutManagerVer.setOrientation(LinearLayoutManager.HORIZONTAL);
         mBind.hlistLiveroomViewersVer.setAdapter(new ViewsPicHorizontalRvAdapter(context, initViewerData()));
-        danmaku= new Danmu(context,mBind.playDan);
+        Danmu danmaku= new Danmu(context,mBind.playDan);
+        danmuList.add(danmaku);
         container.addView(contentView);
 
         return contentView;
@@ -248,11 +250,11 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
                     svgaImageView.stopAnimation();
                 else
                     svgaImageView.startAnimation();
-                if (danmaku!=null){
-                    for (int i = 0; i <3 ; i++) {
-                        danmaku.addDanmaku(true);
-                    }
-                }
+//                if (danmaku!=null){
+//                    for (int i = 0; i <3 ; i++) {
+//                        danmaku.addDanmaku(true);
+//                    }
+//                }
 
                 break;
 

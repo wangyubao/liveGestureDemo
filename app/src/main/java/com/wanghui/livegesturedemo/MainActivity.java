@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onPageSelected(int position) {
                 mAdapter.play(position);
-                mAdapter.danmaku.initdanmu();
+                mAdapter.danmuList.get(position).initdanmu();
 
             }
 
@@ -70,6 +70,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         mainBinding.rlStart.setVisibility(View.GONE);
         mAdapter.play(0);
-        mAdapter.danmaku.initdanmu();
+        mAdapter.danmuList.get(0).initdanmu();
     }
 }
