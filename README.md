@@ -7,3 +7,6 @@
 
 
 <img src="https://github.com/wangyubao/liveGestureDemo/blob/master/Image/51514281949_.pic.jpg" width = "300" alt="效果图" align=center />
+
+<img src="https://github.com/wangyubao/liveGestureDemo/blob/master/Image/QQ截图20171228145629.pic.jpg" width = "300" alt="效果图" align=right />
+
