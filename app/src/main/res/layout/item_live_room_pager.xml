@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -9,8 +10,7 @@
         <FrameLayout
             android:id="@+id/flayout_liveroom_surface"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/img_liveroom_bg"
@@ -23,11 +23,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="230dp"
                 android:layout_gravity="top" />
+
+
         </FrameLayout>
+
         <com.wanghui.livegesturedemo.widget.HorizatialSlideFrameLayout
             android:id="@+id/hslideflayout_liveroom"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -36,15 +40,20 @@
                     android:id="@+id/hlist_liveroom_viewers_ver"
                     android:layout_width="280dp"
                     android:layout_height="@dimen/dp36"
-                    android:layout_centerVertical="true"
-                    android:scrollbars="none"
-                    android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
-                    android:orientation="horizontal"/>
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal"
+                    android:scrollbars="none" />
 
+                <master.flame.danmaku.ui.widget.DanmakuView
+                    android:id="@+id/play_dan"
+                    android:layout_width="match_parent"
+                    android:layout_height="194dp"
+                    android:layout_marginTop="@dimen/dp36"
+                    />
             </RelativeLayout>
         </com.wanghui.livegesturedemo.widget.HorizatialSlideFrameLayout>
-
 
 
         <com.wanghui.livegesturedemo.widget.DragLayout
@@ -68,7 +77,7 @@
                     android:layout_width="@dimen/dp120"
                     android:layout_height="@dimen/dp213"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/ic_small_live"/>
+                    android:src="@mipmap/ic_small_live" />
 
                 <TextureView
                     android:id="@+id/surface_camera"
@@ -81,7 +90,7 @@
                     android:layout_height="@dimen/dialog_waitting_child"
                     android:layout_centerInParent="true"
                     android:src="@mipmap/dialog_wating"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
                 <FrameLayout
                     android:id="@+id/fl_on_camera"
@@ -106,31 +115,34 @@
             android:id="@+id/bimg_small_live_switch"
             android:layout_width="@dimen/dp36"
             android:layout_height="@dimen/dp36"
-            android:src="@drawable/liveroom_small_switch_selector"
-            android:visibility="gone"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/dp10" />
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/dp10"
+            android:src="@drawable/liveroom_small_switch_selector"
+            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/bimg_send_gift"
             android:layout_width="@dimen/dp36"
             android:layout_height="@dimen/dp36"
-            android:src="@drawable/liveroom_send_gift"
-            android:visibility="visible"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/dp10" />
+            android:layout_alignParentLeft="true"
+            android:layout_margin="@dimen/dp10"
+            android:src="@drawable/liveroom_send_gift"
+            android:visibility="visible" />
 
         <com.opensource.svgaplayer.SVGAImageView
             android:id="@+id/img_send_car"
-            android:layout_height="match_parent"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:scaleType="fitCenter"
-            app:source="posche.svga"
             app:antiAlias="true"
             app:autoPlay="false"
-            app:loopCount="1"/>
+            app:loopCount="1"
+            app:source="posche.svga" />
 
     </RelativeLayout>
 

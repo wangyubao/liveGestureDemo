@@ -13,10 +13,13 @@ import com.wanghui.livegesturedemo.databinding.ActivityMainBinding;
 import java.util.ArrayList;
 import java.util.List;
 
+import master.flame.danmaku.danmaku.model.Danmaku;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityMainBinding mainBinding;
     private VerticalViewPagerAdapter mAdapter;
     private List<String> mList = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initData();
         initPagerAdapter();
         mainBinding.tvStart.setOnClickListener(this);
-        Log.i("1231","131");
+
     }
 
     private void initData() {
@@ -46,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onPageSelected(int position) {
                 mAdapter.play(position);
+                mAdapter.danmaku.initdanmu();
+
             }
 
             @Override
@@ -65,5 +70,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         mainBinding.rlStart.setVisibility(View.GONE);
         mAdapter.play(0);
+        mAdapter.danmaku.initdanmu();
     }
 }
