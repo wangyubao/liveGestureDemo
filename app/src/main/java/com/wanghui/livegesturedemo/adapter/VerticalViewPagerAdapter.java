@@ -1,6 +1,8 @@
 package com.wanghui.livegesturedemo.adapter;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
@@ -10,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextPaint;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
@@ -18,7 +21,12 @@ import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.opensource.svgaplayer.SVGADrawable;
+import com.opensource.svgaplayer.SVGADynamicEntity;
 import com.opensource.svgaplayer.SVGAImageView;
+import com.opensource.svgaplayer.SVGAParser;
+import com.opensource.svgaplayer.SVGAVideoEntity;
+import com.opensource.svgaplayer.proto.MovieEntity;
 import com.wanghui.livegesturedemo.MainActivity;
 import com.wanghui.livegesturedemo.R;
 import com.wanghui.livegesturedemo.Utils.Danmu;
@@ -27,6 +35,8 @@ import com.wanghui.livegesturedemo.Utils.LogUtil;
 import com.wanghui.livegesturedemo.Utils.ScreenUtils;
 import com.wanghui.livegesturedemo.bean.LiveViewersPicBean;
 import com.wanghui.livegesturedemo.databinding.ItemLiveRoomPagerBinding;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -73,6 +83,7 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
     private IjkMediaPlayer cameraPlayer;
 //    public Danmu danmaku;
     public List<Danmu> danmuList = new ArrayList<>();
+    private int giftNum = 0;
 
     public VerticalViewPagerAdapter(Activity context, List<String> dataList) {
         this.dataList = dataList;
@@ -255,6 +266,33 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
 //                        danmaku.addDanmaku(true);
 //                    }
 //                }
+
+//                giftNum++;
+//                SVGAParser svgaParser = new SVGAParser(context);
+//                svgaParser.parse("posche.svga", new SVGAParser.ParseCompletion(){
+//
+//                    @Override
+//                    public void onError() {
+//
+//                    }
+//
+//                    @Override
+//                    public void onComplete(@NotNull SVGAVideoEntity videoItem) {
+//                        SVGADynamicEntity dynamicItem = new SVGADynamicEntity();
+//                        Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.mipmap.em_2);
+//                        dynamicItem.setDynamicImage(bitmap, "02");
+//                        TextPaint textPaint = new TextPaint();
+//                        textPaint.setTextSize(30);
+//                        textPaint.setFakeBoldText(true);
+//                        textPaint.setARGB(0xff, 0xff, 0xe0, 0xa4);
+//                        textPaint.setShadowLayer((float)1.0, (float)0.0, (float)1.0, Color.BLACK); // 各种配置
+//                        dynamicItem.setDynamicText("崔小姐不吃鱼 送了魔法奇缘", textPaint, "99");
+//                        SVGADrawable drawable = new SVGADrawable(videoItem, dynamicItem);
+//                        mBinding.imgSendCar.setImageDrawable(drawable);
+//                        mBinding.imgSendCar.startAnimation();
+//                    }
+//                });
+
 
                 break;
 

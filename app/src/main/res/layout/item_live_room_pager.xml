@@ -64,7 +64,16 @@
                     app:antiAlias="true"
                     app:autoPlay="false"
                     app:loopCount="1"
-                    app:source="flash1909.svga" />
+                    app:source="posche.svga"/>
+                <!--<com.opensource.svgaplayer.SVGAImageView-->
+                    <!--android:id="@+id/img_send_car_small"-->
+                    <!--android:layout_width="120dp"-->
+                    <!--android:layout_height="20dp"-->
+                    <!--android:scaleType="fitCenter"-->
+                    <!--app:antiAlias="true"-->
+                    <!--app:autoPlay="false"-->
+                    <!--app:loopCount="1"-->
+                    <!--android:layout_centerVertical="true"/>-->
             </RelativeLayout>
         </com.wanghui.livegesturedemo.widget.HorizatialSlideFrameLayout>
 
