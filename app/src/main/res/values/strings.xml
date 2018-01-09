@@ -5,7 +5,7 @@
     <string name="loadmore_error">加载失败,请检查网络</string>
     <string name="only_one_child">只能有一个子孩子</string>
     <string name="load_failed">加载出错了...</string>
-    <!--MainActivity-->
+    LiveActivityvity-->
     <string name="onstart_toast">正在直播中,请结束直播再进其他直播间或录像!</string>
     <string name="no_net_to_video">无法观看视频，请连接网络</string>
     <string name="no_net_to_live">无法进入直播间，请连接网络</string>

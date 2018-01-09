@@ -1,68 +1,27 @@
 package com.wanghui.livegesturedemo.adapter;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.RectF;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.LinearLayoutManager;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.TextPaint;
-import android.text.style.BackgroundColorSpan;
-import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowInsets;
 
-import com.opensource.svgaplayer.SVGADrawable;
-import com.opensource.svgaplayer.SVGADynamicEntity;
 import com.opensource.svgaplayer.SVGAImageView;
-import com.opensource.svgaplayer.SVGAParser;
-import com.opensource.svgaplayer.SVGAVideoEntity;
-import com.opensource.svgaplayer.proto.MovieEntity;
-import com.wanghui.livegesturedemo.MainActivity;
 import com.wanghui.livegesturedemo.R;
 import com.wanghui.livegesturedemo.Utils.Danmu;
 import com.wanghui.livegesturedemo.Utils.IjkPlayerHelper;
 import com.wanghui.livegesturedemo.Utils.LogUtil;
 import com.wanghui.livegesturedemo.Utils.ScreenUtils;
-import com.wanghui.livegesturedemo.bean.LiveViewersPicBean;
 import com.wanghui.livegesturedemo.databinding.ItemLiveRoomPagerBinding;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-import master.flame.danmaku.controller.IDanmakuView;
-import master.flame.danmaku.danmaku.loader.ILoader;
-import master.flame.danmaku.danmaku.loader.IllegalDataException;
-import master.flame.danmaku.danmaku.loader.android.DanmakuLoaderFactory;
-import master.flame.danmaku.danmaku.model.BaseDanmaku;
-import master.flame.danmaku.danmaku.model.Danmaku;
-import master.flame.danmaku.danmaku.model.DanmakuTimer;
-import master.flame.danmaku.danmaku.model.IDisplayer;
-import master.flame.danmaku.danmaku.model.android.BaseCacheStuffer;
-import master.flame.danmaku.danmaku.model.android.DanmakuContext;
-import master.flame.danmaku.danmaku.model.android.Danmakus;
-import master.flame.danmaku.danmaku.model.android.SpannedCacheStuffer;
-import master.flame.danmaku.danmaku.parser.BaseDanmakuParser;
-import master.flame.danmaku.danmaku.parser.IDataSource;
-import master.flame.danmaku.danmaku.parser.android.BiliDanmukuParser;
-import master.flame.danmaku.danmaku.util.IOUtils;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
 import static android.view.View.GONE;
@@ -142,7 +101,14 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
         Danmu danmaku= new Danmu(context,mBind.playDan);
         danmuList.add(danmaku);
         container.addView(contentView);
-
+        if (position == 0) {
+            mBind.playerFullscreenSurfaceView.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
+                @Override
+                public WindowInsets onApplyWindowInsets(View v, WindowInsets insets) {
+                    return insets;
+                }
+            });
+        }
         return contentView;
     }
 
@@ -225,7 +191,7 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
         ijkPlayerHelper.endPlayer(cameraPlayer);
 
         if (mBinding.playerFullscreenSurfaceView != null && mBinding.surfaceCamera != null) {
-            ijkMediaPlayer = ijkPlayerHelper.open(dataList.get(position), mBinding.playerFullscreenSurfaceView.getHolder(), true);
+            ijkMediaPlayer = ijkPlayerHelper.openWithTextureView(dataList.get(position), new Surface(mBinding.playerFullscreenSurfaceView.getSurfaceTexture()));
             cameraPlayer = ijkPlayerHelper.openWithTextureView(dataList.get(position), new Surface(mBinding.surfaceCamera.getSurfaceTexture()));
         }
 

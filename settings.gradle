@@ -1,1 +1,1 @@
-include ':app', ':svgalibrary'
+include ':app', ':svgalibrary', ':openCVLibrary340', ':gsyVideoPlayer'

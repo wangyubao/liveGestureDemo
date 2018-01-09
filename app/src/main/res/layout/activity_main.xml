@@ -5,25 +5,32 @@
     <data>
 
     </data>
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <com.wanghui.livegesturedemo.widget.VerticalViewPager
-            android:id="@+id/vp_liveroom_switch"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/tv_live"
+            android:layout_width="@dimen/dp100"
+            android:layout_height="@dimen/dp30"
+            android:textSize="14sp"
+            android:text="观看直播"
+            android:gravity="center"
+            android:background="@drawable/bg_selector_commit"
+            android:textColor="@color/white"
+            android:layout_margin="@dimen/dp10"/>
 
-        <RelativeLayout
-            android:id="@+id/rl_start"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/tv_start"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@mipmap/mp4_button_start_pressed"
-                android:layout_centerInParent="true"/>
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/tv_face_detection"
+            android:layout_width="@dimen/dp100"
+            android:layout_height="@dimen/dp30"
+            android:textSize="14sp"
+            android:text="面部识别"
+            android:gravity="center"
+            android:background="@drawable/bg_selector_commit"
+            android:textColor="@color/white"
+            android:layout_margin="@dimen/dp10"/>
 
-    </FrameLayout>
+    </LinearLayout>
 </layout>
