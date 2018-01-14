@@ -396,6 +396,9 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
 
     @Override
     protected void onSurfaceChanged() {
+        if (mCamera == null) {
+            return;
+        }
         int rotation = getDisplayOrientation();
         mCamera.setDisplayOrientation(rotation);
         Camera.Parameters parameters = mCamera.getParameters();

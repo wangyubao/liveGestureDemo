@@ -4,6 +4,24 @@ int attr show_fps 0x7f040002
 int id any 0x7f0c0001
 int id back 0x7f0c0002
 int id front 0x7f0c0003
+int raw haarcascade_eye 0x7f140001
+int raw haarcascade_eye_tree_eyeglasses 0x7f140002
+int raw haarcascade_frontalcatface 0x7f140003
+int raw haarcascade_frontalcatface_extended 0x7f140004
+int raw haarcascade_frontalface_alt 0x7f140005
+int raw haarcascade_frontalface_alt2 0x7f140006
+int raw haarcascade_frontalface_alt_tree 0x7f140007
+int raw haarcascade_frontalface_default 0x7f140008
+int raw haarcascade_fullbody 0x7f140009
+int raw haarcascade_lefteye_2splits 0x7f14000a
+int raw haarcascade_licence_plate_rus_16stages 0x7f14000b
+int raw haarcascade_lowerbody 0x7f14000c
+int raw haarcascade_profileface 0x7f14000d
+int raw haarcascade_righteye_2splits 0x7f14000e
+int raw haarcascade_russian_plate_number 0x7f14000f
+int raw haarcascade_smile 0x7f140010
+int raw haarcascade_upperbody 0x7f140011
+int raw lbpcascade_frontalface 0x7f140012
 int[] styleable CameraBridgeViewBase { 0x7f040001, 0x7f040002 }
 int styleable CameraBridgeViewBase_camera_id 0
 int styleable CameraBridgeViewBase_show_fps 1

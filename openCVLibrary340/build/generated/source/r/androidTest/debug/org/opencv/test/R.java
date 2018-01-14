@@ -34,6 +34,26 @@ public final class R {
     public static final int back=0x7f020001;
     public static final int front=0x7f020002;
   }
+  public static final class raw {
+    public static final int haarcascade_eye=0x7f030000;
+    public static final int haarcascade_eye_tree_eyeglasses=0x7f030001;
+    public static final int haarcascade_frontalcatface=0x7f030002;
+    public static final int haarcascade_frontalcatface_extended=0x7f030003;
+    public static final int haarcascade_frontalface_alt=0x7f030004;
+    public static final int haarcascade_frontalface_alt2=0x7f030005;
+    public static final int haarcascade_frontalface_alt_tree=0x7f030006;
+    public static final int haarcascade_frontalface_default=0x7f030007;
+    public static final int haarcascade_fullbody=0x7f030008;
+    public static final int haarcascade_lefteye_2splits=0x7f030009;
+    public static final int haarcascade_licence_plate_rus_16stages=0x7f03000a;
+    public static final int haarcascade_lowerbody=0x7f03000b;
+    public static final int haarcascade_profileface=0x7f03000c;
+    public static final int haarcascade_righteye_2splits=0x7f03000d;
+    public static final int haarcascade_russian_plate_number=0x7f03000e;
+    public static final int haarcascade_smile=0x7f03000f;
+    public static final int haarcascade_upperbody=0x7f030010;
+    public static final int lbpcascade_frontalface=0x7f030011;
+  }
   public static final class styleable {
     /**
      * Attributes that can be used with a CameraBridgeViewBase.

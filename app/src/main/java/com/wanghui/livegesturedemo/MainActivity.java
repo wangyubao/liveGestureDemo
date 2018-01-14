@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.wanghui.livegesturedemo.databinding.ActivityMainBinding;
+import com.wanghui.livegesturedemo.opencv.OpenCVActivity;
 
 
 /**
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         mainBinding.tvLive.setOnClickListener(this);
         mainBinding.tvFaceDetection.setOnClickListener(this);
+        mainBinding.tvObjectDetection.setOnClickListener(this);
     }
 
     @Override
@@ -58,6 +60,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(new Intent(getApplicationContext(), FdActivity.class));
                 }
 
+                break;
+            case R.id.tv_object_detection:
+                startActivity(new Intent(getApplicationContext(), OpenCVActivity.class));
                 break;
         }
     }

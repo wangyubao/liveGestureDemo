@@ -36,6 +36,17 @@
 
         <activity android:name=".LiveActivity" android:screenOrientation="portrait"/>
         <activity android:name=".FdActivity" android:screenOrientation="landscape"/>
+        <activity android:name=".opencv.OpenCVActivity"/>
+        <!-- 目标检测Activity -->
+        <activity
+            android:name=".opencv.ObjectDetectingActivity"
+            android:screenOrientation="landscape"
+             />
+        <!-- 目标追踪Activity -->
+        <activity
+            android:name=".opencv.ObjectTrackingActivity"
+            android:screenOrientation="landscape"
+             />
     </application>
 
 </manifest>

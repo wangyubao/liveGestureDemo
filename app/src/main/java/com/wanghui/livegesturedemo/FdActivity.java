@@ -9,6 +9,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
+import android.widget.Toast;
+
+import com.wanghui.livegesturedemo.Utils.RawFileUtils;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
@@ -24,12 +27,15 @@ import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
+import static org.opencv.core.CvType.CV_32S;
 
 public class FdActivity extends AppCompatActivity implements CvCameraViewListener2 {
 
@@ -199,39 +205,51 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
         }
 
         Rect[] facesArray = faces.toArray();
-        for (int i = 0; i < facesArray.length; i++) {
-            if (i == 0) {
-                int faceX = facesArray[i].x;
-                int faceY = facesArray[i].y;
-                Bitmap bitmap = scaleBitmap(R.drawable.hashiqi_small, facesArray[i].width, facesArray[i].height);
-                String fileName = null;
-//                try {
-//                    fileName = getAssets().list("image")[0];
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-                Mat iconMat = new Mat();
-//                    Mat iconMat = Imgcodecs.imread(fileName);
-//                    Mat maskMat = Imgcodecs.imread(fileName, 0);
-                Utils.bitmapToMat(bitmap, iconMat);
-//                if (iconMat.height() <= facesArray[i].height && iconMat.width() <= facesArray[i].width) {
+//        for (int i = 0; i < facesArray.length; i++) {
+//            if (i == 0) {
+//                int faceX = facesArray[i].x;
+//                int faceY = facesArray[i].y;
+//                Bitmap bitmap = scaleBitmap(R.drawable.hashiqi_small, facesArray[i].width, facesArray[i].height);
+//                Mat iconMat = new Mat();
 //
-//                    Rect rec = new Rect(faceX + (facesArray[i].width - iconMat.width())/2, faceY, iconMat.cols(), iconMat.rows());
+//                Utils.bitmapToMat(bitmap, iconMat);
+//                if (faceX + iconMat.cols() <= mRgba.cols() && faceY + iconMat.rows() <= mRgba.rows()) {
+//                    Rect rec = new Rect(faceX , faceY, iconMat.cols(), iconMat.rows());
+//                    Log.i("mygod", bitmap.getHeight() + "," + bitmap.getWidth());
 //                    Mat submat = mRgba.submat(rec);
 //                    iconMat.copyTo(submat);
 //                }
+//            }
+////            Imgproc.rectangle(mRgba, facesArray[i].tl(), facesArray[i].br(), FACE_RECT_COLOR, 3);
+//        }
 
-                Utils.bitmapToMat(bitmap, iconMat);
-                if (faceX + iconMat.cols() <= mRgba.cols() && faceY + iconMat.rows() <= mRgba.rows()) {
-                    Rect rec = new Rect(faceX , faceY, iconMat.cols(), iconMat.rows());
-                    Log.i("mygod", bitmap.getHeight() + "," + bitmap.getWidth());
-                    Mat submat = mRgba.submat(rec);
-                    iconMat.copyTo(submat);
+        for (int i = 0; i < facesArray.length; i++) {
+            if (i ==0) {
+                int faceX = facesArray[i].x;
+                int faceY = facesArray[i].y;
+                String fileName = RawFileUtils.getCacheRawFilePath(getApplicationContext(), R.raw.hat);
+                double scale=1;
+                Mat iconMat = Imgcodecs.imread(fileName);
+                Mat maskMat = Imgcodecs.imread(fileName, 0);
+//                Size dsize =new Size((iconMat.cols())*scale, (iconMat.rows())*scale);
+//                Mat newIconMat =new Mat(dsize,CV_32S);
+//                Mat newMaskMat = new Mat(dsize, CV_32S);
+//                Imgproc.resize(iconMat, newIconMat, dsize);
+//                Imgproc.resize(maskMat, newMaskMat, dsize);
+                if (iconMat.empty()) {
+                    Toast.makeText(FdActivity.this, fileName, Toast.LENGTH_SHORT).show();
+                } else {
+                    Mat imgRGBA = new Mat();
+                    Imgproc.cvtColor(iconMat, imgRGBA, Imgproc.COLOR_BGR2RGBA);
+                    if (faceX + imgRGBA.cols() <= mRgba.cols() && faceY + imgRGBA.rows() <= mRgba.rows()) {
+                        Rect rec = new Rect(faceX , faceY, imgRGBA.cols(), imgRGBA.rows());
+                        Mat submat = mRgba.submat(rec);
+                        imgRGBA.copyTo(submat, maskMat);
+                    }
                 }
-//                Mat maskImread = Imgcodecs.imread(fileName, 0);
             }
-//            Imgproc.rectangle(mRgba, facesArray[i].tl(), facesArray[i].br(), FACE_RECT_COLOR, 3);
         }
+
         return mRgba;
     }
 
@@ -294,4 +312,5 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
         int imageWidth = options.outWidth;
         return MyUtils.decodeSampledBitmapFromResource(getResources(), ResId, width, height);
     }
+
 }

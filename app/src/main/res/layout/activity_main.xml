@@ -26,7 +26,18 @@
             android:layout_width="@dimen/dp100"
             android:layout_height="@dimen/dp30"
             android:textSize="14sp"
-            android:text="面部识别"
+            android:text="面部检测"
+            android:gravity="center"
+            android:background="@drawable/bg_selector_commit"
+            android:textColor="@color/white"
+            android:layout_margin="@dimen/dp10"/>
+
+        <TextView
+            android:id="@+id/tv_object_detection"
+            android:layout_width="@dimen/dp100"
+            android:layout_height="@dimen/dp30"
+            android:textSize="14sp"
+            android:text="物体识别"
             android:gravity="center"
             android:background="@drawable/bg_selector_commit"
             android:textColor="@color/white"

@@ -16,6 +16,26 @@ public final class R {
         public static int back = 0x7f0c0002;
         public static int front = 0x7f0c0003;
     }
+    public static final class raw {
+        public static int haarcascade_eye = 0x7f140001;
+        public static int haarcascade_eye_tree_eyeglasses = 0x7f140002;
+        public static int haarcascade_frontalcatface = 0x7f140003;
+        public static int haarcascade_frontalcatface_extended = 0x7f140004;
+        public static int haarcascade_frontalface_alt = 0x7f140005;
+        public static int haarcascade_frontalface_alt2 = 0x7f140006;
+        public static int haarcascade_frontalface_alt_tree = 0x7f140007;
+        public static int haarcascade_frontalface_default = 0x7f140008;
+        public static int haarcascade_fullbody = 0x7f140009;
+        public static int haarcascade_lefteye_2splits = 0x7f14000a;
+        public static int haarcascade_licence_plate_rus_16stages = 0x7f14000b;
+        public static int haarcascade_lowerbody = 0x7f14000c;
+        public static int haarcascade_profileface = 0x7f14000d;
+        public static int haarcascade_righteye_2splits = 0x7f14000e;
+        public static int haarcascade_russian_plate_number = 0x7f14000f;
+        public static int haarcascade_smile = 0x7f140010;
+        public static int haarcascade_upperbody = 0x7f140011;
+        public static int lbpcascade_frontalface = 0x7f140012;
+    }
     public static final class styleable {
         public static int[] CameraBridgeViewBase = { 0x7f040001, 0x7f040002 };
         public static int CameraBridgeViewBase_camera_id = 0;
