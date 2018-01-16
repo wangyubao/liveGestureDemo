@@ -1,18 +1,16 @@
 package org.opencv.android;
 
-import java.lang.reflect.Method;
 import java.util.List;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.ImageFormat;
-import android.graphics.Rect;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.hardware.Camera.PreviewCallback;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 
 import org.opencv.BuildConfig;
@@ -182,8 +180,15 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
                     mFrameWidth = params.getPreviewSize().width;
                     mFrameHeight = params.getPreviewSize().height;
 
+                    // terry, change to max layout
                     if ((getLayoutParams().width == LayoutParams.MATCH_PARENT) && (getLayoutParams().height == LayoutParams.MATCH_PARENT))
-                        mScale = Math.min(((float)height)/mFrameHeight, ((float)width)/mFrameWidth);
+                        //mScale = Math.min(((float)height)/mFrameHeight, ((float)width)/mFrameWidth);
+                        mScale = Math.max(((float)height)/mFrameHeight, ((float)width)/mFrameWidth);
+//                        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+//                            mScale = 1;
+//                        } else {
+//                            mScale = 0;
+//                        }
                     else
                         mScale = 0;
 
@@ -195,6 +200,9 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
                     size  = size * ImageFormat.getBitsPerPixel(params.getPreviewFormat()) / 8;
                     mBuffer = new byte[size];
 
+                    int intOrientation = getResources().getConfiguration().orientation;
+//                    if (intOrientation == Configuration.ORIENTATION_PORTRAIT)
+//                    mCamera.setDisplayOrientation(270);
                     mCamera.addCallbackBuffer(mBuffer);
                     mCamera.setPreviewCallbackWithBuffer(this);
 
@@ -212,11 +220,11 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
                         mSurfaceTexture = new SurfaceTexture(MAGIC_TEXTURE_ID);
                         mCamera.setPreviewTexture(mSurfaceTexture);
                     } else
-                       mCamera.setPreviewDisplay(null);
+                        mCamera.setPreviewDisplay(null);
 
                     /* Finally we are ready to start the preview */
                     Log.d(TAG, "startPreview");
-                    setDisplayOrientation(mCamera, 90);
+
                     mCamera.startPreview();
                 }
                 else
@@ -228,19 +236,6 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
         }
 
         return result;
-    }
-
-    protected void setDisplayOrientation(Camera camera, int angle){
-        Method downPolymorphic;
-        try
-        {
-            downPolymorphic = camera.getClass().getMethod("setDisplayOrientation", new Class[] { int.class });
-            if (downPolymorphic != null)
-                downPolymorphic.invoke(camera, new Object[] { angle });
-        }
-        catch (Exception e1)
-        {
-        }
     }
 
     protected void releaseCamera() {
@@ -391,48 +386,6 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
                 }
             } while (!mStopThread);
             Log.d(TAG, "Finish processing thread");
-        }
-    }
-
-    @Override
-    protected void onSurfaceChanged() {
-        if (mCamera == null) {
-            return;
-        }
-        int rotation = getDisplayOrientation();
-        mCamera.setDisplayOrientation(rotation);
-        Camera.Parameters parameters = mCamera.getParameters();
-        parameters.setRotation(rotation);
-        mCamera.setParameters(parameters);
-        adjustDisplayRatio(rotation);
-    }
-
-    private void adjustDisplayRatio(int rotation) {
-        ViewGroup parent = ((ViewGroup) getParent());
-        Rect rect = new Rect();
-        parent.getLocalVisibleRect(rect);
-        int width = rect.width();
-        int height = rect.height();
-        Camera.Size previewSize = mCamera.getParameters().getPreviewSize();
-        int previewWidth;
-        int previewHeight;
-        if (rotation == 90 || rotation == 270) {
-            previewWidth = previewSize.height;
-            previewHeight = previewSize.width;
-        } else {
-            previewWidth = previewSize.width;
-            previewHeight = previewSize.height;
-        }
-
-        if (width * previewHeight > height * previewWidth) {
-            final int scaledChildWidth = previewWidth * height / previewHeight;
-
-            layout((width - scaledChildWidth) / 2, 0,
-                    (width + scaledChildWidth) / 2, height);
-        } else {
-            final int scaledChildHeight = previewHeight * width / previewWidth;
-            layout(0, (height - scaledChildHeight) / 2,
-                    width, (height + scaledChildHeight) / 2);
         }
     }
 }

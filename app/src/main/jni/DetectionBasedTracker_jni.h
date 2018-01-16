@@ -55,6 +55,12 @@ JNIEXPORT void JNICALL Java_com_wanghui_livegesturedemo_DetectionBasedTracker_na
 JNIEXPORT void JNICALL Java_com_wanghui_livegesturedemo_DetectionBasedTracker_nativeDetect
   (JNIEnv *, jclass, jlong, jlong, jlong);
 
+JNIEXPORT jintArray JNICALL Java_com_wanghui_livegesturedemo_DetectionBasedTracker_maxFrame
+   (JNIEnv* env, jclass obj, jintArray buf, jint w, jint h);
+
+JNIEXPORT jintArray JNICALL Java_com_wanghui_livegesturedemo_DetectionBasedTracker_minFrame
+  (JNIEnv* env, jclass obj, jintArray buf, jint w, jint h);
+
 #ifdef __cplusplus
 }
 #endif

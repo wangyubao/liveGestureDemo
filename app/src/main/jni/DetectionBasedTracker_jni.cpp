@@ -7,9 +7,15 @@
 
 #include <android/log.h>
 
+#include "opencv/cv.h"
+#include "opencv/highgui.h"
+#include "opencv/cvwimage.h"
+#include "opencv2/core/core.hpp"
+
 #define LOG_TAG "FaceDetection/DetectionBasedTracker"
 #define LOGD(...) ((void)__android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__))
-
+#define RANGE     100 // 水平外凹或外凸的幅度
+#define PI        3.1415926
 using namespace std;
 using namespace cv;
 
@@ -249,3 +255,145 @@ JNIEXPORT void JNICALL Java_com_wanghui_livegesturedemo_DetectionBasedTracker_na
     }
     LOGD("Java_com_wanghui_livegesturedemo_DetectionBasedTracker_nativeDetect END");
 }
+
+
+
+
+void MaxFrame(IplImage* frame)
+{
+    uchar* old_data = (uchar*)frame->imageData;
+    uchar* new_data = new uchar[frame->widthStep * frame->height];
+
+    int center_X = frame->width / 2;
+    int center_Y = frame->height / 2;
+    int radius = 400;
+    int newX = 0;
+    int newY = 0;
+
+    int real_radius = (int)(radius / 2.0);
+    for (int i = 0; i < frame->width; i++)
+    {
+        for (int j = 0; j < frame->height; j++)
+        {
+            int tX = i - center_X;
+            int tY = j - center_Y;
+
+            int distance = (int)(tX * tX + tY * tY);
+            if (distance < radius * radius)
+            {
+                newX = (int)((float)(tX) / 2.0);
+                newY = (int)((float)(tY) / 2.0);
+
+                newX = (int) (newX * (sqrt((double)distance) / real_radius));
+                newX = (int) (newX * (sqrt((double)distance) / real_radius));
+
+                newX = newX + center_X;
+                newY = newY + center_Y;
+
+                new_data[frame->widthStep * j + i * 4] =  old_data[frame->widthStep * j + i * 4];
+                new_data[frame->widthStep * j + i * 4 + 1] = old_data[frame->widthStep * newY + newX * 4 + 1];
+                new_data[frame->widthStep * j + i * 4 + 2] =old_data[frame->widthStep * newY + newX * 4 + 2];
+                new_data[frame->widthStep * j + i * 4 + 3] =old_data[frame->widthStep * newY + newX * 4 + 3];
+            }
+            else
+           {
+                new_data[frame->widthStep * j + i * 4] =  old_data[frame->widthStep * j + i * 4];
+                new_data[frame->widthStep * j + i * 4 + 1] =  old_data[frame->widthStep * j + i * 4 + 1];
+                new_data[frame->widthStep * j + i * 4 + 2] =  old_data[frame->widthStep * j + i * 4 + 2];
+                new_data[frame->widthStep * j + i * 4 + 3] =old_data[frame->widthStep * j + i * 4 + 3];
+            }
+        }
+    }
+    memcpy(old_data, new_data, sizeof(uchar) * frame->widthStep * frame->height);
+    delete[] new_data;
+}
+
+
+void MinFrame(IplImage* frame)
+{
+    uchar* old_data = (uchar*)frame->imageData;
+    uchar* new_data = new uchar[frame->widthStep * frame->height];
+
+    int center_X = frame->width / 2;
+    int center_Y = frame->height / 2;
+
+    int radius = 0;
+    double theta = 0;
+    int newX = 0;
+    int newY = 0;
+
+    for (int i = 0; i < frame->width; i++)
+    {
+        for (int j = 0; j < frame->height; j++)
+        {
+            int tX = i - center_X;
+            int tY = j - center_Y;
+
+            theta = atan2((double)tY, (double)tX);
+            radius = (int)sqrt((double)(tX * tX) + (double) (tY * tY));
+            int newR = (int)(sqrt((double)radius) * 12);
+            newX = center_X + (int)(newR * cos(theta));
+            newY = center_Y + (int)(newR * sin(theta));
+
+            if (!(newX > 0 && newX < frame->width))
+            {
+                newX = 0;
+            }
+            if (!(newY > 0 && newY < frame->height))
+            {
+                newY = 0;
+            }
+
+            new_data[frame->widthStep * j + i * 4] = old_data[frame->widthStep * j + i * 4];
+            new_data[frame->widthStep * j + i * 4 + 1] = old_data[frame->widthStep * newY + newX * 4 + 1];
+            new_data[frame->widthStep * j + i * 4 + 2] =old_data[frame->widthStep * newY + newX * 4 + 2];
+            new_data[frame->widthStep * j + i * 4 + 3] =old_data[frame->widthStep * newY + newX * 4 + 3];
+        }
+    }
+    memcpy(old_data, new_data, sizeof(uchar) * frame->widthStep * frame->height);
+    delete[] new_data;
+}
+//com.example.facedec
+
+JNIEXPORT jintArray JNICALL Java_com_wanghui_livegesturedemo_DetectionBasedTracker_maxFrame
+  (JNIEnv* env, jclass obj, jintArray buf, jint w, jint h)
+{
+ jint *cbuf;
+     cbuf = env->GetIntArrayElements(buf, false);
+     if(cbuf == NULL){
+         return 0;
+     }
+     int size=w * h;
+     Mat imgData(h, w, CV_8UC4, (unsigned char*)cbuf);
+     IplImage temp = IplImage(imgData);
+     IplImage *image=&temp;
+
+     MaxFrame(image);
+
+     jintArray result = env->NewIntArray(size);
+  env->SetIntArrayRegion(result, 0, size, cbuf);
+  env->ReleaseIntArrayElements(buf, cbuf, 0);
+  return result;
+}
+
+JNIEXPORT jintArray JNICALL Java_com_wanghui_livegesturedemo_DetectionBasedTracker_minFrame
+  (JNIEnv* env, jclass obj, jintArray buf, jint w, jint h)
+{
+ jint *cbuf;
+     cbuf = env->GetIntArrayElements(buf, false);
+     if(cbuf == NULL){
+         return 0;
+     }
+
+     Mat imgData(h, w, CV_8UC4, (unsigned char*)cbuf);
+     IplImage temp = IplImage(imgData);
+     IplImage *src= &temp;
+     MinFrame(src);
+
+     int size=w * h;
+     jintArray result = env->NewIntArray(size);
+     env->SetIntArrayRegion(result, 0, size, cbuf);
+     env->ReleaseIntArrayElements(buf, cbuf, 0);
+     return result;
+}
+

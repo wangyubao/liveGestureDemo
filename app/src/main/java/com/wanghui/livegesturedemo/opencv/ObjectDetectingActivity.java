@@ -4,12 +4,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
 
 import com.wanghui.livegesturedemo.R;
+import com.wanghui.livegesturedemo.Utils.RawFileUtils;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.LoaderCallbackInterface;
@@ -36,12 +38,12 @@ public class ObjectDetectingActivity extends BaseActivity implements CompoundBut
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_object_detecting);
 
-        ((RadioButton) findViewById(R.id.rb_face)).setOnCheckedChangeListener(this);
-        ((RadioButton) findViewById(R.id.rb_eye)).setOnCheckedChangeListener(this);
-        ((RadioButton) findViewById(R.id.rb_upper_body)).setOnCheckedChangeListener(this);
-        ((RadioButton) findViewById(R.id.rb_lower_body)).setOnCheckedChangeListener(this);
-        ((RadioButton) findViewById(R.id.rb_full_body)).setOnCheckedChangeListener(this);
-        ((RadioButton) findViewById(R.id.rb_smile)).setOnCheckedChangeListener(this);
+        ((CheckBox) findViewById(R.id.rb_face)).setOnCheckedChangeListener(this);
+        ((CheckBox) findViewById(R.id.rb_eye)).setOnCheckedChangeListener(this);
+        ((CheckBox) findViewById(R.id.rb_upper_body)).setOnCheckedChangeListener(this);
+        ((CheckBox) findViewById(R.id.rb_lower_body)).setOnCheckedChangeListener(this);
+        ((CheckBox) findViewById(R.id.rb_full_body)).setOnCheckedChangeListener(this);
+        ((CheckBox) findViewById(R.id.rb_smile)).setOnCheckedChangeListener(this);
 
         objectDetectingView = (ObjectDetectingView) findViewById(R.id.photograph_view);
 
@@ -49,13 +51,17 @@ public class ObjectDetectingActivity extends BaseActivity implements CompoundBut
             @Override
             public void onOpenCVLoadSuccess() {
                 Toast.makeText(getApplicationContext(), "OpenCV 加载成功", Toast.LENGTH_SHORT).show();
-                mFaceDetector = new ObjectDetector(getApplicationContext(), R.raw.lbpcascade_frontalface, 6, 0.2F, 0.2F, new Scalar(255, 0, 0, 255));
+                mFaceDetector = new ObjectDetector(getApplicationContext(), R.raw.lbpcascade_frontalface, 3, 0.2F, 0.2F, new Scalar(255, 0, 0, 255));
                 mEyeDetector = new ObjectDetector(getApplicationContext(), R.raw.haarcascade_eye, 6, 0.1F, 0.1F, new Scalar(0, 255, 0, 255));
                 mUpperBodyDetector = new ObjectDetector(getApplicationContext(), R.raw.haarcascade_upperbody, 3, 0.3F, 0.4F, new Scalar(0, 0, 255, 255));
                 mLowerBodyDetector = new ObjectDetector(getApplicationContext(), R.raw.haarcascade_lowerbody, 3, 0.3F, 0.4F, new Scalar(255, 255, 0, 255));
                 mFullBodyDetector = new ObjectDetector(getApplicationContext(), R.raw.haarcascade_fullbody, 3, 0.3F, 0.5F, new Scalar(255, 0, 255, 255));
                 mSmileDetector = new ObjectDetector(getApplicationContext(), R.raw.haarcascade_smile, 10, 0.2F, 0.2F, new Scalar(0, 255, 255, 255));
-                findViewById(R.id.radio_group).setVisibility(View.VISIBLE);
+//                findViewById(R.id.radio_group).setVisibility(View.VISIBLE);
+                String fileName = RawFileUtils.getCacheRawFilePath(getApplicationContext(), R.raw.dog);
+                objectDetectingView.addDetector(mFaceDetector);
+                objectDetectingView.addDetector(mEyeDetector);
+                objectDetectingView.setFileSrcPath(fileName);
             }
 
             @Override
@@ -144,5 +150,10 @@ public class ObjectDetectingActivity extends BaseActivity implements CompoundBut
         super.onResume();
         objectDetectingView.loadOpenCV(getApplicationContext());
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

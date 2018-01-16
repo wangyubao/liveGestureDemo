@@ -3,13 +3,21 @@ package kongqw;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.widget.Toast;
 
+import org.opencv.R;
+import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfRect;
+import org.opencv.core.Point;
 import org.opencv.core.Rect;
+import org.opencv.core.Size;
+import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
 import java.util.ArrayList;
+
+import static org.opencv.core.CvType.CV_32S;
 
 /**
  * Created by kqw on 2016/7/13.
@@ -19,8 +27,12 @@ public class ObjectDetectingView extends BaseCameraView {
 
     private static final String TAG = "ObjectDetectingView";
     private ArrayList<ObjectDetector> mObjectDetects;
+    private String fileSrcPath;
+    private Mat iconMat;
+    private Mat maskMat;
 
     private MatOfRect mObject;
+
 
     @Override
     public void onOpenCVLoadSuccess() {
@@ -45,16 +57,68 @@ public class ObjectDetectingView extends BaseCameraView {
         // 子线程（非UI线程）
         mRgba = inputFrame.rgba();
         mGray = inputFrame.gray();
+        Mat tMat = null;
 
-        for (ObjectDetector detector : mObjectDetects) {
-            // 检测目标
-            Rect[] object = detector.detectObject(mGray, mObject);
-            for (Rect rect : object) {
-                Imgproc.rectangle(mRgba, rect.tl(), rect.br(), detector.getRectColor(), 3);
-            }
+        tMat = mRgba.t();
+        Core.flip(tMat, mRgba, mCameraFront ? -1 : 1);
+        tMat.release();
+        tMat = mGray.t();
+        Core.flip(tMat, mGray, mCameraFront ? -1 : 1);
+        tMat.release();
+
+
+//        for (ObjectDetector detector : mObjectDetects) {
+//            // 检测目标
+//            Rect[] object = detector.detectObject(mGray, mObject);
+//            for (Rect rect : object) {
+//                Imgproc.rectangle(mRgba, rect.tl(), rect.br(), detector.getRectColor(), 3);
+//            }
+//        }
+
+        for (int i = 0; i < mObjectDetects.size(); i++) {
+            ObjectDetector detector = mObjectDetects.get(i);
+            Rect[] objects = detector.detectObject(mGray, mObject);
+//            for (Rect rect : objects) {
+////                Imgproc.rectangle(mRgba, rect.tl(), rect.br(), detector.getRectColor(), 3);
+//                if (i == 0) {
+//                }
+//            }
+            addFaceSticker(objects);
         }
 
+        mGray.release();
+
+        tMat = mRgba.t();
+        Core.flip(tMat, mRgba, mCameraFront ? 1 : -1);
+        tMat.release();
+
         return mRgba;
+    }
+
+    private void addFaceSticker(Rect[] facesArray) {
+        for (int i = 0; i < facesArray.length; i++) {
+            if (i ==0) {
+                int faceX = facesArray[i].x;
+                int faceY = facesArray[i].y;
+                double scale= 0.5;
+                Size dsize =new Size((iconMat.cols())*scale, (iconMat.rows())*scale);
+                Mat newIconMat =new Mat(dsize,CV_32S);
+                Mat newMaskMat = new Mat(dsize, CV_32S);
+                Imgproc.resize(iconMat, newIconMat, dsize);
+                Imgproc.resize(maskMat, newMaskMat, dsize);
+                if (iconMat.empty()) {
+//                    ret
+                } else {
+                    Mat imgRGBA = new Mat();
+                    Imgproc.cvtColor(newIconMat, imgRGBA, Imgproc.COLOR_BGR2RGBA);
+                    if (faceX + imgRGBA.cols() <= mRgba.cols() && faceY + imgRGBA.rows() <= mRgba.rows()) {
+                        Rect rec = new Rect(faceX , faceY, imgRGBA.cols(), imgRGBA.rows());
+                        Mat submat = mRgba.submat(rec);
+                        imgRGBA.copyTo(submat, newMaskMat);
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -79,4 +143,9 @@ public class ObjectDetectingView extends BaseCameraView {
         }
     }
 
+    public void setFileSrcPath(String fileSrcPath) {
+        this.fileSrcPath = fileSrcPath;
+        iconMat = Imgcodecs.imread(fileSrcPath);
+        maskMat = Imgcodecs.imread(fileSrcPath, 0);
+    }
 }

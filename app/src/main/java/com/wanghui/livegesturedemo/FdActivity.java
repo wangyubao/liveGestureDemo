@@ -1,17 +1,14 @@
 package com.wanghui.livegesturedemo;
 
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
-import android.widget.Toast;
-
-import com.wanghui.livegesturedemo.Utils.RawFileUtils;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
@@ -19,14 +16,12 @@ import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
-import org.opencv.android.Utils;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfRect;
 import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
-import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 
@@ -35,12 +30,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import static org.opencv.core.CvType.CV_32S;
+public class FdActivity extends Activity implements CvCameraViewListener2 {
 
-public class FdActivity extends AppCompatActivity implements CvCameraViewListener2 {
-
-    private static final String    TAG                 = "OCVSample::Activity";
-    private static final Scalar FACE_RECT_COLOR     = new Scalar(0, 255, 0, 255);
+    private static final String    TAG                 = "OCVSample";
+    private static final Scalar    FACE_RECT_COLOR     = new Scalar(0, 255, 0, 255);
     public static final int        JAVA_DETECTOR       = 0;
     public static final int        NATIVE_DETECTOR     = 1;
 
@@ -50,21 +43,22 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
     private MenuItem               mItemFace20;
     private MenuItem               mItemType;
 
-    private Mat mRgba;
-    private Mat mGray;
+    private Mat                    mRgba;
+    private Mat                    mGray;
     private File                   mCascadeFile;
-    private CascadeClassifier mJavaDetector;
-    private DetectionBasedTracker  mNativeDetector;
+    private CascadeClassifier      mJavaDetector;
+    private DetectionBasedTracker mNativeDetector;
 
     private int                    mDetectorType       = JAVA_DETECTOR;
     private String[]               mDetectorName;
+    private boolean                mCameraFront        = true;
 
     private float                  mRelativeFaceSize   = 0.2f;
     private int                    mAbsoluteFaceSize   = 0;
 
-    private CameraBridgeViewBase mOpenCvCameraView;
+    private CameraBridgeViewBase   mOpenCvCameraView;
 
-    private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
+    private BaseLoaderCallback  mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
         public void onManagerConnected(int status) {
             switch (status) {
@@ -131,7 +125,13 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        setContentView(R.layout.face_detect_surface_view);
+        Log.i(TAG, getDeviceName());
+        if (getDeviceName().contains("fc11501")) {
+            mCameraFront = false;
+            setContentView(R.layout.backcam_face_detect_surface_view);
+        }
+        else
+            setContentView(R.layout.frontcam_face_detect_surface_view);
 
         mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.fd_activity_surface_view);
         mOpenCvCameraView.setVisibility(CameraBridgeViewBase.VISIBLE);
@@ -152,7 +152,7 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
         super.onResume();
         if (!OpenCVLoader.initDebug()) {
             Log.d(TAG, "Internal OpenCV library not found. Using OpenCV Manager for initialization");
-            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION, this, mLoaderCallback);
+            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_0_0, this, mLoaderCallback);
         } else {
             Log.d(TAG, "OpenCV library found inside package. Using it!");
             mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
@@ -178,8 +178,7 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
 
         mRgba = inputFrame.rgba();
         mGray = inputFrame.gray();
-        Core.flip(mRgba, mGray, 1);//flip aroud Y-axis
-//        Core.flip(mGray, mGray, 1);
+        Mat tMat = null;
 
         if (mAbsoluteFaceSize == 0) {
             int height = mGray.rows();
@@ -190,6 +189,17 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
         }
 
         MatOfRect faces = new MatOfRect();
+
+//        Core.flip(mRgba.t(), mRgba.t(), mCameraFront ? -1 : 1);
+//        Imgproc.resize(mRgba.t(), mRgba, mRgba.size());
+//        Core.flip(mGray.t(), mGray.t(), mCameraFront ? -1 : 1);
+//        Imgproc.resize(mGray.t(), mGray, mGray.size());
+        tMat = mRgba.t();
+        Core.flip(tMat, mRgba, mCameraFront ? -1 : 1);
+        tMat.release();
+        tMat = mGray.t();
+        Core.flip(tMat, mGray, mCameraFront ? -1 : 1);
+        tMat.release();
 
         if (mDetectorType == JAVA_DETECTOR) {
             if (mJavaDetector != null)
@@ -203,53 +213,15 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
         else {
             Log.e(TAG, "Detection method is not selected!");
         }
+        mGray.release();
 
         Rect[] facesArray = faces.toArray();
-//        for (int i = 0; i < facesArray.length; i++) {
-//            if (i == 0) {
-//                int faceX = facesArray[i].x;
-//                int faceY = facesArray[i].y;
-//                Bitmap bitmap = scaleBitmap(R.drawable.hashiqi_small, facesArray[i].width, facesArray[i].height);
-//                Mat iconMat = new Mat();
-//
-//                Utils.bitmapToMat(bitmap, iconMat);
-//                if (faceX + iconMat.cols() <= mRgba.cols() && faceY + iconMat.rows() <= mRgba.rows()) {
-//                    Rect rec = new Rect(faceX , faceY, iconMat.cols(), iconMat.rows());
-//                    Log.i("mygod", bitmap.getHeight() + "," + bitmap.getWidth());
-//                    Mat submat = mRgba.submat(rec);
-//                    iconMat.copyTo(submat);
-//                }
-//            }
-////            Imgproc.rectangle(mRgba, facesArray[i].tl(), facesArray[i].br(), FACE_RECT_COLOR, 3);
-//        }
+        for (int i = 0; i < facesArray.length; i++)
+            Imgproc.rectangle(mRgba, facesArray[i].tl(), facesArray[i].br(), FACE_RECT_COLOR, 3);
 
-        for (int i = 0; i < facesArray.length; i++) {
-            if (i ==0) {
-                int faceX = facesArray[i].x;
-                int faceY = facesArray[i].y;
-                String fileName = RawFileUtils.getCacheRawFilePath(getApplicationContext(), R.raw.hat);
-                double scale=1;
-                Mat iconMat = Imgcodecs.imread(fileName);
-                Mat maskMat = Imgcodecs.imread(fileName, 0);
-//                Size dsize =new Size((iconMat.cols())*scale, (iconMat.rows())*scale);
-//                Mat newIconMat =new Mat(dsize,CV_32S);
-//                Mat newMaskMat = new Mat(dsize, CV_32S);
-//                Imgproc.resize(iconMat, newIconMat, dsize);
-//                Imgproc.resize(maskMat, newMaskMat, dsize);
-                if (iconMat.empty()) {
-                    Toast.makeText(FdActivity.this, fileName, Toast.LENGTH_SHORT).show();
-                } else {
-                    Mat imgRGBA = new Mat();
-                    Imgproc.cvtColor(iconMat, imgRGBA, Imgproc.COLOR_BGR2RGBA);
-                    if (faceX + imgRGBA.cols() <= mRgba.cols() && faceY + imgRGBA.rows() <= mRgba.rows()) {
-                        Rect rec = new Rect(faceX , faceY, imgRGBA.cols(), imgRGBA.rows());
-                        Mat submat = mRgba.submat(rec);
-                        imgRGBA.copyTo(submat, maskMat);
-                    }
-                }
-            }
-        }
-
+        tMat = mRgba.t();
+        Core.flip(tMat, mRgba, mCameraFront ? 1 : -1);
+        tMat.release();
         return mRgba;
     }
 
@@ -302,15 +274,34 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
         }
     }
 
-    private Bitmap scaleBitmap(int ResId, int width, int height) {
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        //只加载图片边界信息到内存
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeResource(getResources(), ResId, options);
-        //获取图片的真实宽高
-        int imageHeight = options.outHeight;
-        int imageWidth = options.outWidth;
-        return MyUtils.decodeSampledBitmapFromResource(getResources(), ResId, width, height);
+    public static String getDeviceName() {
+        String manufacturer = Build.MANUFACTURER;
+        String model = Build.MODEL;
+        if (model.startsWith(manufacturer)) {
+            return capitalize(model);
+        }
+        return capitalize(manufacturer) + " " + model;
     }
 
+    private static String capitalize(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return str;
+        }
+        char[] arr = str.toCharArray();
+        boolean capitalizeNext = true;
+
+        StringBuilder phrase = new StringBuilder();
+        for (char c : arr) {
+            if (capitalizeNext && Character.isLetter(c)) {
+                phrase.append(Character.toUpperCase(c));
+                capitalizeNext = false;
+                continue;
+            } else if (Character.isWhitespace(c)) {
+                capitalizeNext = true;
+            }
+            phrase.append(c);
+        }
+
+        return phrase.toString();
+    }
 }

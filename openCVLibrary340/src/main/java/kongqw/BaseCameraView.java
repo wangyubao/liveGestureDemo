@@ -23,6 +23,7 @@ import kongqw.listener.OnOpenCVLoadListener;
 public abstract class BaseCameraView extends JavaCameraView implements LoaderCallbackInterface, CameraBridgeViewBase.CvCameraViewListener2 {
 
     private static final String TAG = "BaseRobotCameraView";
+    protected boolean                mCameraFront        = true;
 
     public abstract void onOpenCVLoadSuccess();
 
@@ -170,6 +171,7 @@ public abstract class BaseCameraView extends JavaCameraView implements LoaderCal
     public void swapCamera() {
         disableView();
         setCameraIndex(++mCameraIndexCount % getCameraCount());
+        mCameraFront = !mCameraFront;
         enableView();
     }
 

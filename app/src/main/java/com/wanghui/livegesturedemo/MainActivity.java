@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.wanghui.livegesturedemo.databinding.ActivityMainBinding;
+import com.wanghui.livegesturedemo.opencv.ObjectDetectingActivity;
 import com.wanghui.livegesturedemo.opencv.OpenCVActivity;
 
 
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (ContextCompat.checkSelfPermission(MainActivity.this,Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                         //具有拍照权限，直接调用相机
                         //具体调用代码
-                        startActivity(new Intent(getApplicationContext(), FdActivity.class));
+                        startActivity(new Intent(getApplicationContext(), ObjectDetectingActivity.class));
                     } else {
                         //不具有拍照权限，需要进行权限申请
                         ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.CAMERA}, REQUEST_PERMISSION_CAMERA_CODE);
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } else {
                     //当前系统小于6.0，直接调用拍照
 
-                    startActivity(new Intent(getApplicationContext(), FdActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ObjectDetectingActivity.class));
                 }
 
                 break;
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 boolean cameraGranted = cameraResult == PackageManager.PERMISSION_GRANTED;//拍照权限
                 if (cameraGranted) {
                     //具有拍照权限，调用相机
-                    startActivity(new Intent(getApplicationContext(), FdActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ObjectDetectingActivity.class));
                 } else {
                     //不具有相关权限，给予用户提醒，比如Toast或者对话框，让用户去系统设置-应用管理里把相关权限开启
                     Toast.makeText(getApplicationContext(), "请先开启摄像头权限", Toast.LENGTH_SHORT);
