@@ -78,12 +78,12 @@ public class ObjectDetectingView extends BaseCameraView {
         for (int i = 0; i < mObjectDetects.size(); i++) {
             ObjectDetector detector = mObjectDetects.get(i);
             Rect[] objects = detector.detectObject(mGray, mObject);
-//            for (Rect rect : objects) {
-////                Imgproc.rectangle(mRgba, rect.tl(), rect.br(), detector.getRectColor(), 3);
-//                if (i == 0) {
-//                }
-//            }
-            addFaceSticker(objects);
+            for (Rect rect : objects) {
+//                Imgproc.rectangle(mRgba, rect.tl(), rect.br(), detector.getRectColor(), 3);
+                if (i == 0) {
+                    addFaceSticker(objects);
+                }
+            }
         }
 
         mGray.release();
@@ -106,11 +106,9 @@ public class ObjectDetectingView extends BaseCameraView {
                 Mat newMaskMat = new Mat(dsize, CV_32S);
                 Imgproc.resize(iconMat, newIconMat, dsize);
                 Imgproc.resize(maskMat, newMaskMat, dsize);
-                if (iconMat.empty()) {
-//                    ret
-                } else {
-                    Mat imgRGBA = new Mat();
-                    Imgproc.cvtColor(newIconMat, imgRGBA, Imgproc.COLOR_BGR2RGBA);
+                Mat imgRGBA = new Mat();
+                Imgproc.cvtColor(newIconMat, imgRGBA, Imgproc.COLOR_BGR2RGBA);
+                if (!iconMat.empty()) {
                     if (faceX + imgRGBA.cols() <= mRgba.cols() && faceY + imgRGBA.rows() <= mRgba.rows()) {
                         Rect rec = new Rect(faceX , faceY, imgRGBA.cols(), imgRGBA.rows());
                         Mat submat = mRgba.submat(rec);
