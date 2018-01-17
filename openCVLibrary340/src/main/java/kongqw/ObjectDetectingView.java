@@ -101,7 +101,7 @@ public class ObjectDetectingView extends BaseCameraView {
         for (int i = 0; i < facesArray.length; i++) {
             if (i ==0) {
                 Rect rect = facesArray[i];
-                int faceX = rect.x-50 < 0 ? 0 : rect.x-50;
+                int faceX = rect.x;
                 int faceY = rect.y-50 < 0 ? 0 : rect.y-50;
                 Size dsize =new Size(rect.width, rect.height);
                 Mat newIconMat =new Mat(dsize,CV_32S);
