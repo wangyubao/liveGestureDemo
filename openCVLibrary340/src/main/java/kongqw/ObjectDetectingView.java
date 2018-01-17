@@ -17,7 +17,9 @@ import org.opencv.imgproc.Imgproc;
 
 import java.util.ArrayList;
 
+import static org.opencv.core.CvType.CV_32F;
 import static org.opencv.core.CvType.CV_32S;
+import static org.opencv.core.CvType.CV_8U;
 
 /**
  * Created by kqw on 2016/7/13.
@@ -98,21 +100,22 @@ public class ObjectDetectingView extends BaseCameraView {
     private void addFaceSticker(Rect[] facesArray) {
         for (int i = 0; i < facesArray.length; i++) {
             if (i ==0) {
-                int faceX = facesArray[i].x;
-                int faceY = facesArray[i].y;
-                double scale= 0.5;
-                Size dsize =new Size((iconMat.cols())*scale, (iconMat.rows())*scale);
+                Rect rect = facesArray[i];
+                int faceX = rect.x-50 < 0 ? 0 : rect.x-50;
+                int faceY = rect.y-50 < 0 ? 0 : rect.y-50;
+                Size dsize =new Size(rect.width, rect.height);
                 Mat newIconMat =new Mat(dsize,CV_32S);
                 Mat newMaskMat = new Mat(dsize, CV_32S);
-                Imgproc.resize(iconMat, newIconMat, dsize);
-                Imgproc.resize(maskMat, newMaskMat, dsize);
+                Imgproc.resize(subIconMat, newIconMat, dsize);
+                Imgproc.resize(subMask, newMaskMat, dsize);
                 Mat imgRGBA = new Mat();
                 Imgproc.cvtColor(newIconMat, imgRGBA, Imgproc.COLOR_BGR2RGBA);
-                if (!iconMat.empty()) {
+                if (!subIconMat.empty()) {
                     if (faceX + imgRGBA.cols() <= mRgba.cols() && faceY + imgRGBA.rows() <= mRgba.rows()) {
                         Rect rec = new Rect(faceX , faceY, imgRGBA.cols(), imgRGBA.rows());
                         Mat submat = mRgba.submat(rec);
                         imgRGBA.copyTo(submat, newMaskMat);
+//                        iconMat.copyTo(submat);
                     }
                 }
             }
@@ -141,9 +144,14 @@ public class ObjectDetectingView extends BaseCameraView {
         }
     }
 
+    private Mat subIconMat;
+    private Mat subMask;
     public void setFileSrcPath(String fileSrcPath) {
         this.fileSrcPath = fileSrcPath;
         iconMat = Imgcodecs.imread(fileSrcPath);
         maskMat = Imgcodecs.imread(fileSrcPath, 0);
+        Rect rect = new Rect(60, 20, iconMat.width() - 120, iconMat.height() - 40);
+        subIconMat = iconMat.submat(rect);
+        subMask = maskMat.submat(rect);
     }
 }
