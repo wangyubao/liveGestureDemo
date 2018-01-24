@@ -61,7 +61,6 @@ public class LiveActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-//        mAdapter.play(0);
     }
 
     @Override

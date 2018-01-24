@@ -2,11 +2,13 @@ package com.wanghui.livegesturedemo.adapter;
 
 import android.app.Activity;
 import android.graphics.RectF;
+import android.graphics.SurfaceTexture;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.Surface;
+import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
@@ -75,40 +77,56 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
     public Object instantiateItem(ViewGroup container, int position) {
         View contentView = LayoutInflater.from(context).inflate(R.layout.item_live_room_pager, null, true);
 //        final ItemLiveRoomPagerBinding
-        final ItemLiveRoomPagerBinding mBind = ItemLiveRoomPagerBinding.bind(contentView);
-        bindingList.add(mBind);
-        mBind.ivCloseSmall.setOnClickListener(this);
-        mBind.bimgSmallLiveSwitch.setOnClickListener(this);
-        mBind.hslideflayoutLiveroom.setOrientation();
-        mBind.hslideflayoutLiveroom.setPart(3);
-        mBind.dragLayout.setOnTouchListener(new View.OnTouchListener() {
+        final ItemLiveRoomPagerBinding pageBinding = ItemLiveRoomPagerBinding.bind(contentView);
+        bindingList.add(pageBinding);
+        pageBinding.ivCloseSmall.setOnClickListener(this);
+        pageBinding.bimgSmallLiveSwitch.setOnClickListener(this);
+        pageBinding.hslideflayoutLiveroom.setOrientation();
+        pageBinding.hslideflayoutLiveroom.setPart(3);
+        pageBinding.dragLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                return handleGesture(event, mBind);
+                return handleGesture(event, pageBinding);
             }
         });
-        mBind.bimgSendGift.setTag(mBind.imgSendCar);
-        mBind.imgSendCar.stopAnimation();
-        mBind.bimgSendGift.setOnClickListener(this);
-        mBind.playDan.setOnClickListener(this);
-
-
-        LinearLayoutManager linearLayoutManagerVer = new LinearLayoutManager(context);
-        mBind.hlistLiveroomViewersVer.setLayoutManager(linearLayoutManagerVer);
-        mBind.hlistLiveroomViewersVer.setHasFixedSize(true);
-        linearLayoutManagerVer.setOrientation(LinearLayoutManager.HORIZONTAL);
-        mBind.hlistLiveroomViewersVer.setAdapter(new ViewsPicHorizontalRvAdapter(context, initViewerData()));
-        Danmu danmaku= new Danmu(context,mBind.playDan);
-        danmuList.add(danmaku);
-        container.addView(contentView);
+        pageBinding.bimgSendGift.setTag(pageBinding.imgSendCar);
+        pageBinding.imgSendCar.stopAnimation();
+        pageBinding.bimgSendGift.setOnClickListener(this);
+        pageBinding.playDan.setOnClickListener(this);
         if (position == 0) {
-            mBind.playerFullscreenSurfaceView.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
+            pageBinding.surfaceCamera.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() {
                 @Override
-                public WindowInsets onApplyWindowInsets(View v, WindowInsets insets) {
-                    return insets;
+                public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
+                    play(0);
+                }
+
+                @Override
+                public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) {
+
+                }
+
+                @Override
+                public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
+                    return false;
+                }
+
+                @Override
+                public void onSurfaceTextureUpdated(SurfaceTexture surface) {
+
                 }
             });
         }
+
+
+        LinearLayoutManager linearLayoutManagerVer = new LinearLayoutManager(context);
+        pageBinding.hlistLiveroomViewersVer.setLayoutManager(linearLayoutManagerVer);
+        pageBinding.hlistLiveroomViewersVer.setHasFixedSize(true);
+        linearLayoutManagerVer.setOrientation(LinearLayoutManager.HORIZONTAL);
+        pageBinding.hlistLiveroomViewersVer.setAdapter(new ViewsPicHorizontalRvAdapter(context, initViewerData()));
+        Danmu danmaku= new Danmu(context,pageBinding.playDan);
+        danmuList.add(danmaku);
+        container.addView(contentView);
+
         return contentView;
     }
 
