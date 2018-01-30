@@ -93,11 +93,12 @@ public class VerticalViewPagerAdapter extends PagerAdapter implements View.OnCli
         pageBinding.imgSendCar.stopAnimation();
         pageBinding.bimgSendGift.setOnClickListener(this);
         pageBinding.playDan.setOnClickListener(this);
-        if (position == 0) {
+        if (position == 0) {//当surfacetexture可用时自动播放第一个直播流
             pageBinding.surfaceCamera.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() {
                 @Override
                 public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
                     play(0);
+                    danmuList.get(0).initdanmu();
                 }
 
                 @Override
