@@ -10,3 +10,5 @@
 
 <img src="https://github.com/laoshaoguo/liveGestureDemo1/blob/master/Image/20171228145629.png" width = "300" alt="弹幕效果图" align=right />
 
+<img src="https://github.com/wangyubao/liveGestureDemo/blob/master/Image/61540179170_.pic.jpg" width = "300" alt="弹幕效果图" align=right />
+
